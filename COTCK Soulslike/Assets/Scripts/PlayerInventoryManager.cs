@@ -26,7 +26,7 @@ public class PlayerInventoryManager : MonoBehaviour
     {
         mainHandSlot = new WeaponSlot();
         offHandSlot = new WeaponSlot();
-        ringSlots = new ColorSlot[totalColorSlots];
+        colorSlots = new ColorSlot[totalColorSlots];
 
         for (int i = 0; i < colorSlots.Length; i++)
         {
