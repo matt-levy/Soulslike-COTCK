@@ -78,10 +78,10 @@
             "id": "975cb939-dc45-4148-bce9-aca1bf96230f",
             "actions": [
                 {
-                    "name": "New action",
-                    "type": "Button",
+                    "name": "Movement",
+                    "type": "PassThrough",
                     "id": "3c5cca23-8075-4663-bdcb-81eec78a2c80",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -89,15 +89,59 @@
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "5d078b30-7712-47b1-9a3c-ec8678ce8ae0",
-                    "path": "",
+                    "name": "Mouse",
+                    "id": "7e6e242b-64a8-411c-a492-729337099f1d",
+                    "path": "2DVector(mode=2)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
-                    "isComposite": false,
+                    "action": "Movement",
+                    "isComposite": true,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "d299da7f-b557-464f-bc84-c8e34e51f534",
+                    "path": "<Mouse>/delta/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "6dd34174-60e3-4e39-8138-ca88209c42f0",
+                    "path": "<Mouse>/delta/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "bfdd6d50-4f9e-45b6-93cc-3a592f48e99f",
+                    "path": "<Mouse>/delta/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "26e081f1-48b9-4de7-a789-cc45eca5a772",
+                    "path": "<Mouse>/delta/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

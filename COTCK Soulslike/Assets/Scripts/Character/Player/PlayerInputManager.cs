@@ -7,11 +7,19 @@ using UnityEngine.SceneManagement;
 public class PlayerInputManager : MonoBehaviour
 {
     public static PlayerInputManager instance;
+    public PlayerManager player;
     PlayerControls playerControls;
+
+    [Header("Movement Input")]
     [SerializeField] Vector2 movementInput;
-    [SerializeField] public float verticalInput;
-    [SerializeField] public float horizontalInput;
-    [SerializeField] public float moveAmount;
+    public float verticalInput;
+    public float horizontalInput;
+    public float moveAmount;
+
+    [Header("Camera Movement Input")]
+    [SerializeField] Vector2 cameraInput;
+    public float cameraVerticalInput;
+    public float cameraHorizontalInput;
 
     private void Awake() {
         if (instance == null) {
@@ -29,6 +37,7 @@ public class PlayerInputManager : MonoBehaviour
 
         instance.enabled = false;
     }
+
     private void OnSceneChanged(Scene oldScene, Scene newScene)
     {
         // If we load into our world scene, enable player controls
@@ -46,6 +55,7 @@ public class PlayerInputManager : MonoBehaviour
             playerControls = new PlayerControls();
 
             playerControls.PlayerMovement.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
+            playerControls.PlayerCamera.Movement.performed += i => cameraInput = i.ReadValue<Vector2>();
         }
 
         playerControls.Enable();
@@ -58,7 +68,9 @@ public class PlayerInputManager : MonoBehaviour
 
     private void Update() {
         HandleMovementInput();
+        HandleCameraMovementInput();
     }
+
     private void HandleMovementInput() {
         verticalInput = movementInput.y;
         horizontalInput = movementInput.x;
@@ -71,5 +83,18 @@ public class PlayerInputManager : MonoBehaviour
         } else if (moveAmount > 0.5 && moveAmount <= 1) {
             moveAmount = 1f;
         }
+
+        if (player == null)
+            return;
+
+        // x is 0 because we only strafe when locked on
+        player.playerAnimatorManager.UpdateAnimatorMovementParameters(0, moveAmount);
+
+        // If we are locked on, pass vertical and horizontal params
+    }
+
+    private void HandleCameraMovementInput() {
+        cameraVerticalInput = cameraInput.y;
+        cameraHorizontalInput = cameraInput.x;
     }
 }

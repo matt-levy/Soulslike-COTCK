@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerManager : CharacterManager
 {
-    PlayerLocomotionManager playerLocomotionManager;
+    [HideInInspector] public PlayerLocomotionManager playerLocomotionManager;
+    [HideInInspector] public PlayerAnimatorManager playerAnimatorManager;
     protected override void Awake()
     {
         base.Awake();
 
         // Do more stuff for player functionality
         playerLocomotionManager = GetComponent<PlayerLocomotionManager>();
+        playerAnimatorManager = GetComponent<PlayerAnimatorManager>();
+        // Give the player the camera
+        PlayerCamera.instance.player = this;
+        PlayerInputManager.instance.player = this;
     }
 
     protected override void Update()
@@ -19,4 +25,12 @@ public class PlayerManager : CharacterManager
 
         playerLocomotionManager.HandleAllMovement();
     }
+
+    protected override void LateUpdate()
+    {
+        base.LateUpdate();
+
+        PlayerCamera.instance.HandleAllCameraActions();
+    }
+
 }
