@@ -374,6 +374,7 @@
 "Assets/Scripts/Character/Player/PlayerManager.cs"
 "Assets/Scripts/Character/Player/PlayerUI/PlayerUIManager.cs"
 "Assets/Scripts/PlayerControls.cs"
+"Assets/Scripts/ResetActionFlag.cs"
 "Assets/Scripts/WorldSaveGameManager.cs"
 -langversion:9.0
 

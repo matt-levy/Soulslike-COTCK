@@ -5,15 +5,19 @@ using UnityEngine;
 public class PlayerLocomotionManager : CharacterLocomotionManager
 {
     PlayerManager player;
-    public float verticalMovement;
-    public float horizontalMovement;
-    public float moveAmount;
+    [HideInInspector] public float verticalMovement;
+    [HideInInspector] public float horizontalMovement;
+    [HideInInspector] public float moveAmount;
+
+    [Header("Movement Settings")]
     private Vector3 moveDirection;
     [SerializeField] private float walkingSpeed = 2;
     [SerializeField] private float runningSpeed = 5;
     private Vector3 targetRotationDirection;
     [SerializeField] private float rotationSpeed = 15;
 
+    [Header("Dodge")]
+    private Vector3 rollDirection;
 
     protected override void Awake()
     {
@@ -36,7 +40,11 @@ public class PlayerLocomotionManager : CharacterLocomotionManager
         // Clamp the movements for animations
     }
 
-    private void HandleGroundedMovement() {
+    private void HandleGroundedMovement() 
+    {
+        if (!player.canMove)
+            return;
+
         GetVerticalAndHorizontalInputs();
         
         moveDirection = PlayerCamera.instance.transform.forward * verticalMovement;
@@ -51,7 +59,11 @@ public class PlayerLocomotionManager : CharacterLocomotionManager
         }
     }
 
-    private void HandleRotation() {
+    private void HandleRotation() 
+    {
+        if (!player.canRotate)
+            return;
+
         targetRotationDirection = Vector3.zero;
         targetRotationDirection = PlayerCamera.instance.cameraObject.transform.forward * verticalMovement;
         targetRotationDirection += PlayerCamera.instance.cameraObject.transform.right * horizontalMovement;
@@ -65,5 +77,30 @@ public class PlayerLocomotionManager : CharacterLocomotionManager
         Quaternion newRotation = Quaternion.LookRotation(targetRotationDirection);
         Quaternion targetRotation = Quaternion.Slerp(transform.rotation, newRotation, rotationSpeed * Time.deltaTime);
         transform.rotation = targetRotation;
+    }
+
+    public void AttemptDodge() 
+    {
+        if (player.isPerformingAction)
+            return;
+
+        if (PlayerInputManager.instance.moveAmount > 0) 
+        {
+            rollDirection = PlayerCamera.instance.cameraObject.transform.forward * PlayerInputManager.instance.verticalInput;
+            rollDirection += PlayerCamera.instance.cameraObject.transform.right * PlayerInputManager.instance.horizontalInput;
+
+            rollDirection.y = 0;
+            rollDirection.Normalize();
+            Quaternion playerRotation = Quaternion.LookRotation(rollDirection);
+            player.transform.rotation = playerRotation;
+
+            // Perform roll animation
+            player.playerAnimatorManager.PlayTargetActionAnimation("Roll_Forward_01", true);
+        } 
+        else 
+        {
+            player.playerAnimatorManager.PlayTargetActionAnimation("Backstep_01", true);
+        }
+        
     }
 }

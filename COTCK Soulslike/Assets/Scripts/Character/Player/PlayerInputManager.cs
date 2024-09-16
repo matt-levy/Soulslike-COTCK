@@ -9,6 +9,11 @@ public class PlayerInputManager : MonoBehaviour
     public static PlayerInputManager instance;
     public PlayerManager player;
     PlayerControls playerControls;
+    
+    [Header("Camera Movement Input")]
+    [SerializeField] Vector2 cameraInput;
+    public float cameraVerticalInput;
+    public float cameraHorizontalInput;
 
     [Header("Movement Input")]
     [SerializeField] Vector2 movementInput;
@@ -16,10 +21,9 @@ public class PlayerInputManager : MonoBehaviour
     public float horizontalInput;
     public float moveAmount;
 
-    [Header("Camera Movement Input")]
-    [SerializeField] Vector2 cameraInput;
-    public float cameraVerticalInput;
-    public float cameraHorizontalInput;
+    [Header("Player Action Input")]
+    [SerializeField] private bool dodgeInput = false;
+
 
     private void Awake() {
         if (instance == null) {
@@ -56,6 +60,7 @@ public class PlayerInputManager : MonoBehaviour
 
             playerControls.PlayerMovement.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
             playerControls.PlayerCamera.Movement.performed += i => cameraInput = i.ReadValue<Vector2>();
+            playerControls.PlayerActions.Dodge.performed += i => dodgeInput = true;
         }
 
         playerControls.Enable();
@@ -66,12 +71,22 @@ public class PlayerInputManager : MonoBehaviour
         SceneManager.activeSceneChanged -= OnSceneChanged;
     }
 
-    private void Update() {
-        HandleMovementInput();
-        HandleCameraMovementInput();
+    private void Update() 
+    {   
+       HandleAllInputs();
     }
 
-    private void HandleMovementInput() {
+    private void HandleAllInputs() 
+    {
+        HandleMovementInput();
+        HandleCameraMovementInput();
+        HandleDodgeInput();
+    }
+
+    // Movement
+
+    private void HandleMovementInput()
+    {
         verticalInput = movementInput.y;
         horizontalInput = movementInput.x;
 
@@ -93,8 +108,23 @@ public class PlayerInputManager : MonoBehaviour
         // If we are locked on, pass vertical and horizontal params
     }
 
-    private void HandleCameraMovementInput() {
+    private void HandleCameraMovementInput() 
+    {
         cameraVerticalInput = cameraInput.y;
         cameraHorizontalInput = cameraInput.x;
+    }
+
+    // Actions
+
+    private void HandleDodgeInput() 
+    {
+        if (dodgeInput == true) 
+        {
+            dodgeInput = false;
+
+            // Future note: don't dodge if menu is open
+            player.playerLocomotionManager.AttemptDodge();
+
+        }
     }
 }
