@@ -32,5 +32,4 @@ public class PlayerManager : CharacterManager
 
         PlayerCamera.instance.HandleAllCameraActions();
     }
-
 }

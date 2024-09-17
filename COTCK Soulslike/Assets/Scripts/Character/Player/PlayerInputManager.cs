@@ -23,6 +23,7 @@ public class PlayerInputManager : MonoBehaviour
 
     [Header("Player Action Input")]
     [SerializeField] private bool dodgeInput = false;
+    [SerializeField] private bool sprintInput = false;
 
 
     private void Awake() {
@@ -61,6 +62,10 @@ public class PlayerInputManager : MonoBehaviour
             playerControls.PlayerMovement.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
             playerControls.PlayerCamera.Movement.performed += i => cameraInput = i.ReadValue<Vector2>();
             playerControls.PlayerActions.Dodge.performed += i => dodgeInput = true;
+            
+            // Holding input sets bool to true, releasing sets bool to false
+            playerControls.PlayerActions.Sprint.performed += i => sprintInput = true;
+            playerControls.PlayerActions.Sprint.canceled += i => sprintInput = false;
         }
 
         playerControls.Enable();
@@ -81,6 +86,7 @@ public class PlayerInputManager : MonoBehaviour
         HandleMovementInput();
         HandleCameraMovementInput();
         HandleDodgeInput();
+        HandleSprinting();
     }
 
     // Movement
@@ -103,7 +109,7 @@ public class PlayerInputManager : MonoBehaviour
             return;
 
         // x is 0 because we only strafe when locked on
-        player.playerAnimatorManager.UpdateAnimatorMovementParameters(0, moveAmount);
+        player.playerAnimatorManager.UpdateAnimatorMovementParameters(0, moveAmount, player.isSprinting);
 
         // If we are locked on, pass vertical and horizontal params
     }
@@ -125,6 +131,18 @@ public class PlayerInputManager : MonoBehaviour
             // Future note: don't dodge if menu is open
             player.playerLocomotionManager.AttemptDodge();
 
+        }
+    }
+
+    private void HandleSprinting() 
+    {
+        if (sprintInput)
+        {
+            player.playerLocomotionManager.HandleSprinting();
+        }
+        else
+        {
+            player.isSprinting = false;
         }
     }
 }

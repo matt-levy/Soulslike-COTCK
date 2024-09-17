@@ -7,12 +7,12 @@ public class PlayerLocomotionManager : CharacterLocomotionManager
     PlayerManager player;
     [HideInInspector] public float verticalMovement;
     [HideInInspector] public float horizontalMovement;
-    [HideInInspector] public float moveAmount;
 
     [Header("Movement Settings")]
     private Vector3 moveDirection;
     [SerializeField] private float walkingSpeed = 2;
     [SerializeField] private float runningSpeed = 5;
+    [SerializeField] private float sprintingSpeed = 8;
     private Vector3 targetRotationDirection;
     [SerializeField] private float rotationSpeed = 15;
 
@@ -52,6 +52,22 @@ public class PlayerLocomotionManager : CharacterLocomotionManager
         moveDirection.Normalize();
         moveDirection.y = 0;
 
+        if (player.isSprinting)
+        {
+            player.characterController.Move(moveDirection * sprintingSpeed * Time.deltaTime);
+        }
+        else
+        {
+            if (PlayerInputManager.instance.moveAmount > 0.5f) 
+            {
+                player.characterController.Move(moveDirection * runningSpeed * Time.deltaTime);
+            } 
+            else if (PlayerInputManager.instance.moveAmount <= 0.5f) 
+            {
+                player.characterController.Move(moveDirection * walkingSpeed * Time.deltaTime);
+            }
+        }
+
         if (PlayerInputManager.instance.moveAmount > 0.5f) {
             player.characterController.Move(moveDirection * runningSpeed * Time.deltaTime);
         } else if (PlayerInputManager.instance.moveAmount <= 0.5f) {
@@ -79,6 +95,26 @@ public class PlayerLocomotionManager : CharacterLocomotionManager
         transform.rotation = targetRotation;
     }
 
+    public void HandleSprinting()
+    {
+        if (player.isPerformingAction)
+        {
+            player.isSprinting = false;
+        }
+
+        // TODO: If we are out of stamina, set to false
+
+        if (PlayerInputManager.instance.moveAmount > 0.5) 
+        {
+            Debug.Log("we are in true scenario");
+            player.isSprinting = true;
+        }
+        else
+        {
+            player.isSprinting = false;
+        }
+
+    }
     public void AttemptDodge() 
     {
         if (player.isPerformingAction)
