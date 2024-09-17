@@ -354,6 +354,7 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.21f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/Inventory Slot Scripts/ColorSlot.cs"
 "Assets/Scripts/Inventory Slot Scripts/WeaponSlot.cs"
+"Assets/Scripts/InventorySaveManager.cs"
 "Assets/Scripts/PlayerInventoryManager.cs"
 "Assets/Scripts/Temp Scripts/ColorPassive.cs"
 "Assets/Scripts/Temp Scripts/Consumable.cs"

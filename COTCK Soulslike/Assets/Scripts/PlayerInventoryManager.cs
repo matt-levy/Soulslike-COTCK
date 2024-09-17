@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class PlayerInventoryManager : MonoBehaviour
 {
     // Weapon slots
@@ -42,10 +43,12 @@ public class PlayerInventoryManager : MonoBehaviour
         if (isMainHand)
         {
             mainHandSlot.EquipWeapon(weapon);
+            Debug.Log("Equipped " + weapon.Name + " to main hand");
         }
         else
         {
             offHandSlot.EquipWeapon(weapon);
+            Debug.Log("Equipped " + weapon.Name + " to off hand");
         }
         RemoveWeaponFromInventory(weapon);
     }
@@ -56,6 +59,7 @@ public class PlayerInventoryManager : MonoBehaviour
         Weapon temp = mainHandSlot.equippedWeapon;
         mainHandSlot.EquipWeapon(offHandSlot.equippedWeapon);
         offHandSlot.EquipWeapon(temp);
+        Debug.Log("Swapped weapons");
     }
 
     public void EquipColor(ColorPassive color, int slotIndex)
@@ -74,7 +78,7 @@ public class PlayerInventoryManager : MonoBehaviour
     public void StoreArrows(int amount)
     {
         arrowCount += amount;
-        Debug.Log("Added arrows. Total now: " + arrowCount);
+        Debug.Log("Picked up arrows. Total now: " + arrowCount);
     }
 
     public void ShootArrow()
