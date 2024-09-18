@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5254481373347639168}
   - component: {fileID: 5674564432061499119}
   - component: {fileID: 8917612428448620682}
+  - component: {fileID: -7073966517086414429}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -51,6 +52,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterController: {fileID: 0}
   animator: {fileID: 0}
+  isPerformingAction: 0
+  canRotate: 1
+  canMove: 1
+  applyRootMotion: 0
+  isSprinting: 0
   playerLocomotionManager: {fileID: 0}
   playerAnimatorManager: {fileID: 0}
 --- !u!114 &294078421714447692
@@ -67,9 +73,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   verticalMovement: 0
   horizontalMovement: 0
-  moveAmount: 0
   walkingSpeed: 2
   runningSpeed: 5
+  sprintingSpeed: 8
   rotationSpeed: 15
 --- !u!143 &5254481373347639168
 CharacterController:
@@ -130,6 +136,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-7073966517086414429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351390492694500521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e8cb59d91932774da34cc60a0bece3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6493121323125261368
 PrefabInstance:
   m_ObjectHideFlags: 0

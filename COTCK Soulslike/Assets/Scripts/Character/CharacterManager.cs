@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CharacterManager : MonoBehaviour
@@ -15,6 +16,10 @@ public class CharacterManager : MonoBehaviour
     public bool applyRootMotion = false;
     public bool isSprinting = false;
 
+    [Header("Stats")]
+    public int endurance = 1;
+    public TrackedInt currentStamina = new(0);
+    public int maxStamina;
 
     protected virtual void Awake() {
         DontDestroyOnLoad(this);
@@ -29,4 +34,5 @@ public class CharacterManager : MonoBehaviour
     protected virtual void LateUpdate() {
 
     }
+
 }

@@ -15,6 +15,8 @@ public class PlayerLocomotionManager : CharacterLocomotionManager
     [SerializeField] private float sprintingSpeed = 8;
     private Vector3 targetRotationDirection;
     [SerializeField] private float rotationSpeed = 15;
+    [SerializeField] private int sprintingStaminaCost = 1;
+    private float staminaCostAccumulator = 0;
 
     [Header("Dodge")]
     private Vector3 rollDirection;
@@ -102,16 +104,33 @@ public class PlayerLocomotionManager : CharacterLocomotionManager
             player.isSprinting = false;
         }
 
-        // TODO: If we are out of stamina, set to false
+        if (player.currentStamina.Value <= 0)
+        {
+            player.isSprinting = false;
+            return;
+        }
 
         if (PlayerInputManager.instance.moveAmount > 0.5) 
         {
-            Debug.Log("we are in true scenario");
             player.isSprinting = true;
         }
         else
         {
             player.isSprinting = false;
+        }
+
+        if (player.isSprinting)
+        {
+            // Casting sprint cost * Time.deltaTime yields values that will round to 0
+            // Must accumulate them until they can round to 1 or greater, then subtract
+            staminaCostAccumulator += sprintingStaminaCost * Time.deltaTime;
+            if (staminaCostAccumulator >= 1)
+            {
+                int cost = (int)staminaCostAccumulator;
+                player.currentStamina.Value -= cost;
+                staminaCostAccumulator -= cost;
+            }
+            
         }
 
     }

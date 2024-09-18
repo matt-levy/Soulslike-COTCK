@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class PlayerUIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static PlayerUIManager instance;
+
+    [HideInInspector] public PlayerUIHudManager playerUIHudManager;
+
+    private void Awake()
     {
-        
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        playerUIHudManager = GetComponentInChildren<PlayerUIHudManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+
+    }
+
+    private void Update()
+    {
+
     }
 }
