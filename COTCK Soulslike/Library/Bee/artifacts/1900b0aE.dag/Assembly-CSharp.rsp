@@ -355,6 +355,8 @@
 "Assets/Scripts/Inventory Slot Scripts/ColorSlot.cs"
 "Assets/Scripts/Inventory Slot Scripts/WeaponSlot.cs"
 "Assets/Scripts/InventorySaveManager.cs"
+"Assets/Scripts/Menu Scripts/MainMenuManager.cs"
+"Assets/Scripts/Menu Scripts/SettingsMenuManager.cs"
 "Assets/Scripts/PlayerInventoryManager.cs"
 "Assets/Scripts/Temp Scripts/ColorPassive.cs"
 "Assets/Scripts/Temp Scripts/Consumable.cs"

@@ -16,7 +16,7 @@ public class PlayerInventoryManager : MonoBehaviour
     public ColorSlot[] colorSlots;
 
     // Consumables
-    public List<Consumable> consumables = new List<Consumable>();
+    public Hashtable consumables = new Hashtable();
 
     // Arrows (for the crossbow)
     public int arrowCount;
@@ -70,9 +70,35 @@ public class PlayerInventoryManager : MonoBehaviour
         }
     }
 
-    public void StoreConsumable(Consumable consumable)
+    public void StoreConsumable(Consumable consumable, string category)
     {
-        consumables.Add(consumable);
+        if (consumables.ContainsKey(category))
+        {
+            List<Consumable> consumableList = (List<Consumable>)consumables[category];
+            consumableList.Add(consumable);
+        }
+        else
+        {
+            consumables[category] = new List<Consumable>();
+            List<Consumable> consumableList = (List<Consumable>)consumables[category];
+            consumableList.Add(consumable);
+
+        }
+    }
+
+    public void UseConsumable(string category)
+    {
+        if (consumables.ContainsKey(category))
+        {
+            List<Consumable> consumableList = (List<Consumable>)consumables[category];
+
+            if (consumableList.Count > 0)
+            {
+                // Use the first consumable in the list
+                consumableList[0].Use();
+                consumableList.Remove(consumableList[0]);
+            }
+        }
     }
 
     public void StoreArrows(int amount)
@@ -84,15 +110,6 @@ public class PlayerInventoryManager : MonoBehaviour
     public void ShootArrow()
     {
         arrowCount -= 1;
-    }
-
-    public void UseConsumable(Consumable consumable)
-    {
-        if (consumables.Contains(consumable))
-        {
-            consumable.Use();
-            consumables.Remove(consumable);
-        }
     }
 
     public void AddWeaponToInventory(Weapon weapon)
