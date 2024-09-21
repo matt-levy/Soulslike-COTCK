@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Weapon : MonoBehaviour
+public class Weapon : Item
 {
-    public string Name;
 
     // Start is called before the first frame update
     void Start()
