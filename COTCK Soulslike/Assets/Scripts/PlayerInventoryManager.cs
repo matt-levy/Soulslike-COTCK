@@ -19,22 +19,17 @@ public class PlayerInventoryManager : MonoBehaviour
     public Hashtable consumables = new Hashtable();
 
     // Arrows (for the crossbow)
-    public int arrowCount;
+    public Dictionary<string, int> arrowsDict = new Dictionary<string, int>();
 
-    public int totalColorSlots = 1;
+    public ColorSlot colorSlot;
+    public List<ColorPassive> colorInventory = new List<ColorPassive>();
+
 
     private void Start()
     {
         mainHandSlot = new WeaponSlot();
         offHandSlot = new WeaponSlot();
-        colorSlots = new ColorSlot[totalColorSlots];
-
-        for (int i = 0; i < colorSlots.Length; i++)
-        {
-            colorSlots[i] = new ColorSlot();
-        }
-
-        arrowCount = 0;
+        colorSlot = new ColorSlot();
     }
 
     // Equip a weapon to a specific hand/slot
@@ -42,11 +37,19 @@ public class PlayerInventoryManager : MonoBehaviour
     {
         if (isMainHand)
         {
+            if (mainHandSlot.equippedWeapon != null)
+            {
+                weaponInventory.Add(mainHandSlot.equippedWeapon);
+            }
             mainHandSlot.EquipWeapon(weapon);
             Debug.Log("Equipped " + weapon.Name + " to main hand");
         }
         else
         {
+            if (offHandSlot.equippedWeapon != null)
+            {
+                weaponInventory.Add(offHandSlot.equippedWeapon);
+            }
             offHandSlot.EquipWeapon(weapon);
             Debug.Log("Equipped " + weapon.Name + " to off hand");
         }
@@ -62,12 +65,14 @@ public class PlayerInventoryManager : MonoBehaviour
         Debug.Log("Swapped weapons");
     }
 
-    public void EquipColor(ColorPassive color, int slotIndex)
+    public void EquipColor(ColorPassive color)
     {
-        if (slotIndex >= 0 && slotIndex < colorSlots.Length)
+        if (colorSlot.equippedColor != null)
         {
-            colorSlots[slotIndex].EquipColor(color);
+            colorInventory.Add(colorSlot.equippedColor);
         }
+        colorSlot.EquipColor(color);
+        RemoveColorFromInventory(color);
     }
 
     public void StoreConsumable(Consumable consumable, string category)
@@ -101,15 +106,21 @@ public class PlayerInventoryManager : MonoBehaviour
         }
     }
 
-    public void StoreArrows(int amount)
+    public void StoreArrows(int amount, string category)
     {
-        arrowCount += amount;
-        Debug.Log("Picked up arrows. Total now: " + arrowCount);
+        if (arrowsDict.ContainsKey(category))
+        {
+            arrowsDict[category] += amount;
+        }
+        else
+        {
+            arrowsDict[category] = amount;
+        }
     }
 
-    public void ShootArrow()
+    public void ShootArrow(string category)
     {
-        arrowCount -= 1;
+        arrowsDict[category] -= 1;
     }
 
     public void AddWeaponToInventory(Weapon weapon)
@@ -120,5 +131,15 @@ public class PlayerInventoryManager : MonoBehaviour
     public void RemoveWeaponFromInventory(Weapon weapon)
     {
         weaponInventory.Remove(weapon);
+    }
+
+    public void AddColorToInventory(ColorPassive color)
+    {
+        colorInventory.Add(color);
+    }
+
+    public void RemoveColorFromInventory(ColorPassive color)
+    {
+        colorInventory.Remove(color);
     }
 }

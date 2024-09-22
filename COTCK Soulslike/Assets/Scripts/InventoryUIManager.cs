@@ -20,6 +20,7 @@ public class InventoryUIManager : MonoBehaviour
     public Button equipMainButton;
     public Button equipOffButton;
     public Button useConsumableButton;
+    public Button equipColor;
 
     public Image selectionHighlight;
 
@@ -109,12 +110,31 @@ public class InventoryUIManager : MonoBehaviour
     public void PopulateAmmoTab()
     {
         ClearActiveItemSlots();
+
+        foreach (string category in inventoryManager.arrowsDict.Keys)
+        {
+            GameObject itemSlot = Instantiate(itemSlotPrefab, consumableGrid.transform);
+            itemSlot.transform.Find("Item Count").GetComponent<Text>().text = inventoryManager.arrowsDict[category].ToString();
+            activeItemSlots.Add(itemSlot);
+
+            itemSlot.GetComponent<Button>().onClick.AddListener(() => HighlightSelectedItem(itemSlot));
+        }
     }
 
     // TODO
     public void PopulateColorsTab()
     {
         ClearActiveItemSlots();
+
+        foreach (var color in inventoryManager.colorInventory)
+        {
+            GameObject itemSlot = Instantiate(itemSlotPrefab, weaponGrid.transform);
+            itemSlot.transform.Find("Item Count").GetComponent<Text>().text = "";
+            activeItemSlots.Add(itemSlot);
+
+            itemSlot.GetComponent<Button>().onClick.AddListener(() => ShowItemDetails(color));
+            itemSlot.GetComponent<Button>().onClick.AddListener(() => HighlightSelectedItem(itemSlot));
+        }
     }
 
 
@@ -151,11 +171,13 @@ public class InventoryUIManager : MonoBehaviour
         }
         if (item is ColorPassive)
         {
-
+            equipColor.gameObject.SetActive(true);
+            equipColor.onClick.RemoveAllListeners();
+            equipColor.onClick.AddListener(() => EquipColor((ColorPassive)item));
         }
         else
         {
-
+            equipColor.gameObject.SetActive(false);
         }
     }
 
@@ -167,6 +189,11 @@ public class InventoryUIManager : MonoBehaviour
     private void EquipWeapon(Weapon weapon, bool isMainHand)
     {
         inventoryManager.EquipWeapon(weapon, isMainHand);
+    }
+
+    private void EquipColor(ColorPassive color)
+    {
+        inventoryManager.EquipColor(color);
     }
 
     private void ClearActiveItemSlots()
