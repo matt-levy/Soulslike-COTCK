@@ -24,7 +24,7 @@ public class PlayerUIManager : MonoBehaviour
 
     private void Start()
     {
-
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Update()

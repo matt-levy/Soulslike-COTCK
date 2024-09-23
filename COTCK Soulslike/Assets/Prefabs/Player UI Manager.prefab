@@ -69,7 +69,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0.37490082, y: 0}
+  m_AnchoredPosition: {x: 0.37490845, y: 0}
   m_SizeDelta: {x: -9.2503, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1711849966407793887
@@ -232,6 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4227966549749033620}
   - component: {fileID: 8687589818730328970}
+  - component: {fileID: 5671830270480436341}
   m_Layer: 0
   m_Name: Stamina Bar
   m_TagString: Untagged
@@ -259,7 +260,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 20}
+  m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8687589818730328970
 MonoBehaviour:
@@ -312,6 +313,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5671830270480436341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4588301988428624722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c25ae401c0f23643a90f85d2d6f1d65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4599019330705452491
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,7 +565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0183bddf630309748abc01dfc6bdeffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  staminaBar: {fileID: 0}
+  staminaBar: {fileID: 5671830270480436341}
 --- !u!1 &8791581167911333923
 GameObject:
   m_ObjectHideFlags: 0

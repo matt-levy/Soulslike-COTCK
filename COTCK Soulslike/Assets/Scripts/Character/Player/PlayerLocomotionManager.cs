@@ -20,6 +20,7 @@ public class PlayerLocomotionManager : CharacterLocomotionManager
 
     [Header("Dodge")]
     private Vector3 rollDirection;
+    [SerializeField] private int dodgeStaminaCost = 2;
 
     protected override void Awake()
     {
@@ -136,7 +137,7 @@ public class PlayerLocomotionManager : CharacterLocomotionManager
     }
     public void AttemptDodge() 
     {
-        if (player.isPerformingAction)
+        if (player.isPerformingAction || player.currentStamina.Value <= 0)
             return;
 
         if (PlayerInputManager.instance.moveAmount > 0) 
@@ -156,6 +157,8 @@ public class PlayerLocomotionManager : CharacterLocomotionManager
         {
             player.playerAnimatorManager.PlayTargetActionAnimation("Backstep_01", true);
         }
+
+        player.currentStamina.Value -= dodgeStaminaCost;
         
     }
 }
