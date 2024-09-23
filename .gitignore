@@ -2,13 +2,13 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Uu]ser[Ss]ettings/
+COTCK\ Soulslike/[Ll]ibrary/
+COTCK\ Soulslike/[Tt]emp/
+COTCK\ Soulslike/[Oo]bj/
+COTCK\ Soulslike/[Bb]uild/
+COTCK\ Soulslike/[Bb]uilds/
+COTCK\ Soulslike/[Ll]ogs/
+COTCK\ Soulslike/[Uu]ser[Ss]ettings/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -24,7 +24,7 @@
 /[Aa]ssets/Plugins/Editor/JetBrains*
 
 # Visual Studio cache directory
-.vs/
+COTCK\ Soulslike/.vscode/
 
 # Gradle cache directory
 .gradle/
