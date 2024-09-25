@@ -1,0 +1,181 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Soulslike-COTCK\\COTCK Soulslike\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|d:\\soulslike-cotck\\cotck soulslike\\assets\\scripts\\inventoryuimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inventoryuimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|D:\\Soulslike-COTCK\\COTCK Soulslike\\assets\\scripts\\playerinventorymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerinventorymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|D:\\Soulslike-COTCK\\COTCK Soulslike\\assets\\scripts\\temp scripts\\colorpassive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\temp scripts\\colorpassive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|D:\\Soulslike-COTCK\\COTCK Soulslike\\assets\\scripts\\inventory slot scripts\\colorslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inventory slot scripts\\colorslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|D:\\Soulslike-COTCK\\COTCK Soulslike\\assets\\scripts\\inventory slot scripts\\weaponslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inventory slot scripts\\weaponslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|D:\\Soulslike-COTCK\\COTCK Soulslike\\assets\\scripts\\menu scripts\\settingsmenumanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\menu scripts\\settingsmenumanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|D:\\Soulslike-COTCK\\COTCK Soulslike\\assets\\scripts\\inventorysavemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inventorysavemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|D:\\Soulslike-COTCK\\COTCK Soulslike\\assets\\scripts\\temp scripts\\consumable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\temp scripts\\consumable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|D:\\Soulslike-COTCK\\COTCK Soulslike\\assets\\scripts\\temp scripts\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\temp scripts\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|D:\\Soulslike-COTCK\\COTCK Soulslike\\assets\\scripts\\temp scripts\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\temp scripts\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Item.cs",
+              "DocumentMoniker": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\Temp Scripts\\Item.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Temp Scripts\\Item.cs",
+              "ToolTip": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\Temp Scripts\\Item.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Temp Scripts\\Item.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T18:16:17.598Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "InventoryUIManager.cs",
+              "DocumentMoniker": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\InventoryUIManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\InventoryUIManager.cs",
+              "ToolTip": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\InventoryUIManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\InventoryUIManager.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAwEEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T18:12:25.639Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayerInventoryManager.cs",
+              "DocumentMoniker": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\PlayerInventoryManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerInventoryManager.cs",
+              "ToolTip": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\PlayerInventoryManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerInventoryManager.cs",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAuwBgAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T18:20:35.732Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SettingsMenuManager.cs",
+              "DocumentMoniker": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\Menu Scripts\\SettingsMenuManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Menu Scripts\\SettingsMenuManager.cs",
+              "ToolTip": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\Menu Scripts\\SettingsMenuManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Menu Scripts\\SettingsMenuManager.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T20:46:41.881Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "InventorySaveManager.cs",
+              "DocumentMoniker": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\InventorySaveManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\InventorySaveManager.cs",
+              "ToolTip": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\InventorySaveManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\InventorySaveManager.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-17T15:19:01.148Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ColorPassive.cs",
+              "DocumentMoniker": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\Temp Scripts\\ColorPassive.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Temp Scripts\\ColorPassive.cs",
+              "ToolTip": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\Temp Scripts\\ColorPassive.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Temp Scripts\\ColorPassive.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T18:47:46.786Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Consumable.cs",
+              "DocumentMoniker": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\Temp Scripts\\Consumable.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Temp Scripts\\Consumable.cs",
+              "ToolTip": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\Temp Scripts\\Consumable.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Temp Scripts\\Consumable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T18:47:43.664Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Weapon.cs",
+              "DocumentMoniker": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\Temp Scripts\\Weapon.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Temp Scripts\\Weapon.cs",
+              "ToolTip": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\Temp Scripts\\Weapon.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Temp Scripts\\Weapon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T18:47:37.079Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ColorSlot.cs",
+              "DocumentMoniker": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\Inventory Slot Scripts\\ColorSlot.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Inventory Slot Scripts\\ColorSlot.cs",
+              "ToolTip": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\Inventory Slot Scripts\\ColorSlot.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Inventory Slot Scripts\\ColorSlot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T16:44:19.652Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "WeaponSlot.cs",
+              "DocumentMoniker": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\Inventory Slot Scripts\\WeaponSlot.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Inventory Slot Scripts\\WeaponSlot.cs",
+              "ToolTip": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\Inventory Slot Scripts\\WeaponSlot.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Inventory Slot Scripts\\WeaponSlot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T16:42:35.634Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
