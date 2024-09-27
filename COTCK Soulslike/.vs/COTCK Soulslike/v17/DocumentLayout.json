@@ -3,7 +3,23 @@
   "WorkspaceRootPath": "D:\\Soulslike-COTCK\\COTCK Soulslike\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|d:\\soulslike-cotck\\cotck soulslike\\assets\\scripts\\inventoryuimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|D:\\Soulslike-COTCK\\COTCK Soulslike\\assets\\scripts\\menu scripts\\settingsmenumanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\menu scripts\\settingsmenumanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|D:\\Soulslike-COTCK\\COTCK Soulslike\\assets\\scripts\\playersettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playersettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|d:\\soulslike-cotck\\cotck soulslike\\assets\\scripts\\settingssavemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\settingssavemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|d:\\soulslike-cotck\\cotck soulslike\\assets\\scripts\\inventorysavemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inventorysavemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|D:\\Soulslike-COTCK\\COTCK Soulslike\\assets\\scripts\\inventoryuimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inventoryuimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -21,14 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|D:\\Soulslike-COTCK\\COTCK Soulslike\\assets\\scripts\\inventory slot scripts\\weaponslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inventory slot scripts\\weaponslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|D:\\Soulslike-COTCK\\COTCK Soulslike\\assets\\scripts\\menu scripts\\settingsmenumanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\menu scripts\\settingsmenumanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|D:\\Soulslike-COTCK\\COTCK Soulslike\\assets\\scripts\\inventorysavemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inventorysavemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|D:\\Soulslike-COTCK\\COTCK Soulslike\\assets\\scripts\\temp scripts\\consumable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -50,11 +58,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 2,
+              "Title": "SettingsSaveManager.cs",
+              "DocumentMoniker": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\SettingsSaveManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SettingsSaveManager.cs",
+              "ToolTip": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\SettingsSaveManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SettingsSaveManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-27T19:16:20.313Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayerSettings.cs",
+              "DocumentMoniker": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\PlayerSettings.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerSettings.cs",
+              "ToolTip": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\PlayerSettings.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerSettings.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwB8AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-27T17:17:55.883Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SettingsMenuManager.cs",
+              "DocumentMoniker": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\Menu Scripts\\SettingsMenuManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Menu Scripts\\SettingsMenuManager.cs",
+              "ToolTip": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\Menu Scripts\\SettingsMenuManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Menu Scripts\\SettingsMenuManager.cs",
+              "ViewState": "AgIAAPoAAAAAAAAAAAAcwOQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T20:46:41.881Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "Item.cs",
               "DocumentMoniker": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\Temp Scripts\\Item.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Temp Scripts\\Item.cs",
@@ -66,7 +113,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "InventoryUIManager.cs",
               "DocumentMoniker": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\InventoryUIManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\InventoryUIManager.cs",
@@ -74,12 +121,11 @@
               "RelativeToolTip": "Assets\\Scripts\\InventoryUIManager.cs",
               "ViewState": "AgIAACcAAAAAAAAAAAAAwEEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T18:12:25.639Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T18:12:25.639Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "PlayerInventoryManager.cs",
               "DocumentMoniker": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\PlayerInventoryManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerInventoryManager.cs",
@@ -91,31 +137,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SettingsMenuManager.cs",
-              "DocumentMoniker": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\Menu Scripts\\SettingsMenuManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Menu Scripts\\SettingsMenuManager.cs",
-              "ToolTip": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\Menu Scripts\\SettingsMenuManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Menu Scripts\\SettingsMenuManager.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBkAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-20T20:46:41.881Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "InventorySaveManager.cs",
               "DocumentMoniker": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\InventorySaveManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\InventorySaveManager.cs",
               "ToolTip": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\InventorySaveManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\InventorySaveManager.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-17T15:19:01.148Z"
+              "WhenOpened": "2024-09-17T15:19:01.148Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "ColorPassive.cs",
               "DocumentMoniker": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\Temp Scripts\\ColorPassive.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Temp Scripts\\ColorPassive.cs",
@@ -127,7 +162,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Consumable.cs",
               "DocumentMoniker": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\Temp Scripts\\Consumable.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Temp Scripts\\Consumable.cs",
@@ -139,7 +174,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "Weapon.cs",
               "DocumentMoniker": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\Temp Scripts\\Weapon.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Temp Scripts\\Weapon.cs",
@@ -151,7 +186,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "ColorSlot.cs",
               "DocumentMoniker": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\Inventory Slot Scripts\\ColorSlot.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Inventory Slot Scripts\\ColorSlot.cs",
@@ -163,7 +198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "WeaponSlot.cs",
               "DocumentMoniker": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\Inventory Slot Scripts\\WeaponSlot.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Inventory Slot Scripts\\WeaponSlot.cs",
