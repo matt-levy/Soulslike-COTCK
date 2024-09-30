@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerLocomotionManager : CharacterLocomotionManager
 {
@@ -27,6 +28,30 @@ public class PlayerLocomotionManager : CharacterLocomotionManager
         base.Awake();
 
         player = GetComponent<PlayerManager>();
+    }
+
+    private void Start() {
+        DontDestroyOnLoad(gameObject);
+
+        // When the scene changes, run this logic
+        SceneManager.activeSceneChanged += OnSceneChanged;
+
+        this.enabled = false;
+    }
+
+    private void OnSceneChanged(Scene oldScene, Scene newScene)
+    {
+        // If we load into our world scene, enable player controls
+        if (newScene.buildIndex == WorldSaveGameManager.instance.GetWorldSceneIndex()) 
+        {
+            this.enabled = true;
+        // Otherwise, disable controls
+        // Character will not move while in any menu view
+        } 
+        else 
+        {
+            this.enabled = false;
+        }
     }
 
     public void HandleAllMovement() {

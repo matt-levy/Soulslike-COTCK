@@ -8,7 +8,7 @@ using UnityEngine;
 public class CharacterSaveData
 {
     [Header("Character Name")]
-    public string characterName;
+    public string characterName = "Character";
 
     [Header("Time Played")]
     public float secondsPlayed;
@@ -18,4 +18,10 @@ public class CharacterSaveData
     public float xPos;
     public float yPos;
     public float zPos;
+
+    [Header("Stats")]
+    public int vitality;
+    public int endurance;
+    public int currentHealth;
+    public int currentStamina;
 }

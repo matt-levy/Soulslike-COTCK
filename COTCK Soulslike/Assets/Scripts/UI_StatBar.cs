@@ -5,13 +5,20 @@ using UnityEngine.UI;
 
 public class UI_StatBar : MonoBehaviour
 {
+    [Header("Bar Options")]
+    [SerializeField] protected bool scaleBarLengthWithStats = true;
+    [SerializeField] protected float widthScaleMultiplier = 1;
+
     private Slider slider;
     // variable to scale size of bar based on stat level
     // Secondary bar behind main bar for polish effect
 
+    private RectTransform rectTransform;
+
     protected virtual void Awake() 
     {
         slider = GetComponent<Slider>();
+        rectTransform = GetComponent<RectTransform>();
     }
 
     public virtual void SetStat(int newValue)
@@ -22,6 +29,13 @@ public class UI_StatBar : MonoBehaviour
     public virtual void SetMaxStat(int maxValue)
     {
         slider.maxValue = maxValue;
+        slider.value = maxValue;
+
+        if (scaleBarLengthWithStats)
+        {
+            // Scale the transform of the object
+            rectTransform.sizeDelta = new Vector2(maxValue * widthScaleMultiplier, rectTransform.sizeDelta.y);
+        }
     }
 
 }

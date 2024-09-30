@@ -46,11 +46,14 @@ public class PlayerInputManager : MonoBehaviour
     private void OnSceneChanged(Scene oldScene, Scene newScene)
     {
         // If we load into our world scene, enable player controls
-        if (newScene.buildIndex == WorldSaveGameManager.instance.GetWorldSceneIndex()) {
+        if (newScene.buildIndex == WorldSaveGameManager.instance.GetWorldSceneIndex()) 
+        {
             instance.enabled = true;
         // Otherwise, disable controls
         // Character will not move while in any menu view
-        } else {
+        } 
+        else 
+        {
             instance.enabled = false;
         }
     }

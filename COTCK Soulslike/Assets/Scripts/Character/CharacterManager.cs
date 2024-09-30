@@ -6,28 +6,41 @@ using UnityEngine;
 
 public class CharacterManager : MonoBehaviour
 {
-    public CharacterController characterController;
+    [HideInInspector] public CharacterController characterController;
     [HideInInspector] public Animator animator;
+    [HideInInspector] public CharacterEffectsManager characterEffectsManager;
+
+    [Header("Status")]
+    public bool isDead = false;
     
     [Header("Flags")]
     public bool isPerformingAction = false;
     public bool canRotate = true;
     public bool canMove = true;
+    public bool isGrounded = true;
     public bool applyRootMotion = false;
     public bool isSprinting = false;
 
     [Header("Stats")]
-    public int endurance = 1;
+    public TrackedInt endurance = new(10);
     public TrackedInt currentStamina = new(0);
     public int maxStamina;
 
-    protected virtual void Awake() {
+    public TrackedInt vitality = new(10);
+    public TrackedInt currentHealth = new(0);
+    public int maxHealth;
+
+
+    protected virtual void Awake() 
+    {
         DontDestroyOnLoad(this);
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        characterEffectsManager = GetComponent<CharacterEffectsManager>();
     }
 
-    protected virtual void Update() {
+    protected virtual void Update() 
+    {
 
     }
 

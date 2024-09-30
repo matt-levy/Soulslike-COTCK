@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -8,7 +9,7 @@ public class WorldSaveGameManager : MonoBehaviour
 {
     public static WorldSaveGameManager instance;
 
-    [SerializeField] private PlayerManager player;
+    [SerializeField] public PlayerManager player;
 
     [Header("SAVE/LOAD")]
     [SerializeField] private bool saveGame;
@@ -110,11 +111,43 @@ public class WorldSaveGameManager : MonoBehaviour
         return fileName;
     }
     
-    public void CreateNewGame()
+    public void AttemptToCreateNewGame()
     {
-        saveFileName = DecideCharacterFileNameBasedOnCharacterSlotBeingUsed(currentSaveSlotBeingUsed);
+        saveFileDataWriter = new SaveFileDataWriter();
+        saveFileDataWriter.saveDataDirectoryPath = Application.persistentDataPath;
 
-        currentCharacterData = new CharacterSaveData();
+        foreach (CharacterSlot slot in Enum.GetValues(typeof(CharacterSlot)))
+        {
+            if (slot == CharacterSlot.NO_SLOT)
+            {
+                continue;
+            }
+
+            saveFileDataWriter.saveFileName = DecideCharacterFileNameBasedOnCharacterSlotBeingUsed(slot);
+
+            // If this profile slot is not taken, use it
+            if (!saveFileDataWriter.CheckIfFileExists())
+            {
+                currentSaveSlotBeingUsed = slot;
+                currentCharacterData = new CharacterSaveData();
+                NewGame();
+                return;
+            }
+        }
+
+        // If there are no free slots, notify player
+        TitleScreenManager.Instance.DisplayNoFreeCharacterSlotsPopup();
+    }
+
+    private void NewGame()
+    {
+        // Temporary code
+        player.vitality = new TrackedInt(15);
+        player.endurance = new TrackedInt(15);
+    
+        // Save new created character stats instantly
+        SaveGame();
+        StartCoroutine(LoadWorldScene());
 
     }
 
@@ -144,6 +177,15 @@ public class WorldSaveGameManager : MonoBehaviour
 
         // Write that info into json file
         saveFileDataWriter.CreateNewCharacterSaveFile(currentCharacterData);
+    }
+
+    public void DeleteGame(CharacterSlot characterSlot)
+    {
+        saveFileDataWriter = new SaveFileDataWriter();
+        saveFileDataWriter.saveDataDirectoryPath = Application.persistentDataPath;
+        saveFileDataWriter.saveFileName = DecideCharacterFileNameBasedOnCharacterSlotBeingUsed(characterSlot);
+
+        saveFileDataWriter.DeleteSaveFile();
     }
 
     // Preload all save files when starting game
@@ -186,6 +228,7 @@ public class WorldSaveGameManager : MonoBehaviour
     public IEnumerator LoadWorldScene() {
         AsyncOperation loadOperator = SceneManager.LoadSceneAsync(worldSceneIndex);
 
+        player.LoadGameDataFromCurrentCharacterData(ref currentCharacterData);
         yield return null;
     }
 
