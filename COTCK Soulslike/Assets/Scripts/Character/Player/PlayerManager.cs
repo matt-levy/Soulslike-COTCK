@@ -11,8 +11,12 @@ public class PlayerManager : CharacterManager
     [HideInInspector] public PlayerAnimatorManager playerAnimatorManager;
     [HideInInspector] public PlayerStatsManager playerStatsManager;
     [HideInInspector] public PlayerInventoryManager playerInventoryManager;
+    [HideInInspector] public PlayerCombatManager playerCombatManager;
     
     public FixedString64Bytes characterName;
+
+    public bool isUsingRightHand = false;
+    public bool isUsingLeftHand = false;
 
     protected override void Awake()
     {
@@ -23,6 +27,7 @@ public class PlayerManager : CharacterManager
         playerAnimatorManager = GetComponent<PlayerAnimatorManager>();
         playerStatsManager = GetComponent<PlayerStatsManager>();
         playerInventoryManager = GetComponent<PlayerInventoryManager>();
+        playerCombatManager = GetComponent<PlayerCombatManager>();
 
         PlayerCamera.instance.player = this;
         PlayerInputManager.instance.player = this;
@@ -31,8 +36,25 @@ public class PlayerManager : CharacterManager
 
     }
 
-    private void Start()
+    public void SetCharacterActionHand(bool rightHandedAction) 
     {
+        if (rightHandedAction)
+        {
+            isUsingLeftHand = false;
+            isUsingRightHand = true;
+        }
+        else
+        {
+            isUsingRightHand = false;
+            isUsingLeftHand = true;
+        }
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+
+
         // Update our max health/stamina when leveling stats
         this.vitality.OnValueChanged += SetNewMaxHealthValue;
         this.endurance.OnValueChanged += SetNewMaxStaminaValue;

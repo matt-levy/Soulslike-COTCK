@@ -24,6 +24,7 @@ public class PlayerInputManager : MonoBehaviour
     [Header("Player Action Input")]
     [SerializeField] private bool dodgeInput = false;
     [SerializeField] private bool sprintInput = false;
+    [SerializeField] private bool RB_Input = false;
 
 
     private void Awake() {
@@ -69,6 +70,7 @@ public class PlayerInputManager : MonoBehaviour
             // Holding input sets bool to true, releasing sets bool to false
             playerControls.PlayerActions.Sprint.performed += i => sprintInput = true;
             playerControls.PlayerActions.Sprint.canceled += i => sprintInput = false;
+            playerControls.PlayerActions.RB.performed += i => RB_Input = true;
         }
 
         playerControls.Enable();
@@ -90,6 +92,7 @@ public class PlayerInputManager : MonoBehaviour
         HandleCameraMovementInput();
         HandleDodgeInput();
         HandleSprinting();
+        HandleRBInput();
     }
 
     // Movement
@@ -146,6 +149,22 @@ public class PlayerInputManager : MonoBehaviour
         else
         {
             player.isSprinting = false;
+        }
+    }
+
+    private void HandleRBInput()
+    {
+        if (RB_Input)
+        {
+            RB_Input = false;
+
+            // If we have a UI window open, return and do nothing
+
+            player.SetCharacterActionHand(true);
+
+            // If we are two handing weapon, run two handed action
+
+            player.playerCombatManager.PerformWeaponBasedAction(player.playerInventoryManager.currentRightHandWeapon.oh_RB_Action, player.playerInventoryManager.currentRightHandWeapon);
         }
     }
 }

@@ -22,3 +22,4 @@ MonoBehaviour:
   physicalDamage: 10
   basePoiseDamage: 10
   baseStaminaCost: 20
+  oh_RB_Action: {fileID: 11400000, guid: 30b7d8d53dac3c64ea8cbd1aa2e84a5e, type: 2}

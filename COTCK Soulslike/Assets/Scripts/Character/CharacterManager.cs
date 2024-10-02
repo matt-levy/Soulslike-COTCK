@@ -39,12 +39,44 @@ public class CharacterManager : MonoBehaviour
         characterEffectsManager = GetComponent<CharacterEffectsManager>();
     }
 
+    protected virtual void Start()
+    {
+        IgnoreMyOwnColliders();
+    }
+
     protected virtual void Update() 
     {
 
     }
 
     protected virtual void LateUpdate() {
+
+    }
+
+    protected virtual void IgnoreMyOwnColliders()
+    {
+        Collider characterControllerCollider = GetComponent<Collider>();
+        Collider[] damagableCharacterColliders = GetComponentsInChildren<Collider>();
+
+        List<Collider> ignoreColliders = new List<Collider>();
+
+        // Add all damage colliders to the list
+        foreach (var collider in damagableCharacterColliders)
+        {
+            ignoreColliders.Add(collider);
+        }
+
+        // Add the character controller collider to the list
+        ignoreColliders.Add(characterControllerCollider);
+
+        // Go through every collider in the list, make them ignore each other
+        foreach (var collider in ignoreColliders)
+        {
+            foreach (var otherCollider in ignoreColliders)
+            {
+                Physics.IgnoreCollision(collider, otherCollider, true);
+            }
+        }
 
     }
 
