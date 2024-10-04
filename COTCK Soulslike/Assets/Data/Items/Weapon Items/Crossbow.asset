@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5de67fabf9fcae4d8aa660094ef5362, type: 3}
+  m_Name: Crossbow
+  m_EditorClassIdentifier: 
+  itemName: Crossbow
+  itemIcon: {fileID: 0}
+  itemDescription: Crossbow
+  itemID: 1
+  weaponModel: {fileID: 9150086686934700792, guid: 83204dddf9d818d469cddb84347fc163, type: 3}
+  strReq: 0
+  dexReq: 0
+  physicalDamage: 10
+  basePoiseDamage: 10
+  baseStaminaCost: 5
+  oh_RB_Action: {fileID: 11400000, guid: a0f39d62c0ca4dc44b2f00e72b06f7b9, type: 2}
