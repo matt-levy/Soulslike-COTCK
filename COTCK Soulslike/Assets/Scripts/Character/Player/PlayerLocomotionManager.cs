@@ -180,7 +180,7 @@ public class PlayerLocomotionManager : CharacterLocomotionManager
         } 
         else 
         {
-            player.playerAnimatorManager.PlayTargetActionAnimation("Backstep_01", true);
+            player.playerAnimatorManager.PlayTargetActionAnimation("Roll_Forward_01", true);
         }
 
         player.currentStamina.Value -= dodgeStaminaCost;
