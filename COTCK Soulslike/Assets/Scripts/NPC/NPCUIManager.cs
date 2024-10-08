@@ -11,6 +11,7 @@ public class NPCUIManager : MonoBehaviour
     public TMP_Text npcNameText;
     public GameObject choicePanel;
     public Button choiceButtonPrefab;
+    public Button continueButton;
 
     private NPCDialogueManager npcDialogueManager;
 
@@ -44,6 +45,7 @@ public class NPCUIManager : MonoBehaviour
     {
         npcDialogueManager = manager;
         npcNameText.text = npcName;
+        ShowContinueButton();
         ClearChoices();
     }
 
@@ -85,5 +87,15 @@ public class NPCUIManager : MonoBehaviour
     public void OnContinueButtonClicked()
     {
         npcDialogueManager.AdvanceDialogue();
+    }
+
+    public void ShowContinueButton()
+    {
+        continueButton.gameObject.SetActive(true);
+    }
+
+    public void HideContinueButton()
+    {
+        continueButton.gameObject.SetActive(false);
     }
 }

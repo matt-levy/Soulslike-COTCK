@@ -17,7 +17,7 @@ public class NPCInteractionManager : MonoBehaviour
     {
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            npcManager.dialogueManager.StartDialogue(startDialogueNode);
+            npcManager.dialogueManager.ResumeDialogue(startDialogueNode);
         }
     }
 

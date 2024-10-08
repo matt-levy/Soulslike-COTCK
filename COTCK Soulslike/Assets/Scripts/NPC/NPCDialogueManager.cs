@@ -6,16 +6,31 @@ public class NPCDialogueManager : MonoBehaviour
     public GameObject dialogueUI;
     [HideInInspector] public NPCUIManager npcUIManager;
     [HideInInspector] public DialogueNode currentNode;
+    private DialogueNode lastNode;
     private int currentLineIndex = 0;
     private NPCManager npcManager;
+    private bool isDialogueActive = false;
 
     private void Start()
     {
         npcManager = GetComponent<NPCManager>();
     }
 
+    public void ResumeDialogue(DialogueNode startNode)
+    {
+        if (lastNode != null)
+        {
+            StartDialogue(lastNode);
+        }
+        else
+        {
+            StartDialogue(startNode);
+        }
+    }
+
     public void StartDialogue(DialogueNode startNode)
     {
+        isDialogueActive = true;
         currentNode = startNode;
         if (npcUIManager == null)
         {
@@ -34,11 +49,13 @@ public class NPCDialogueManager : MonoBehaviour
     {
         if (currentLineIndex < currentNode.dialogueText.Count)
         {
+            npcUIManager.ShowContinueButton();
             string line = currentNode.dialogueText[currentLineIndex];
             npcUIManager.UpdateDialogueText(line);
         }
         else
         {
+            npcUIManager.HideContinueButton();
             ShowChoices();
         }
     }
@@ -76,7 +93,14 @@ public class NPCDialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        isDialogueActive = false;
+        lastNode = currentNode;
         dialogueUI.SetActive(false);
         currentLineIndex = 0;
+    }
+
+    public bool IsDialogueActive()
+    {
+        return isDialogueActive;
     }
 }

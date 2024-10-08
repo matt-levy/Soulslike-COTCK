@@ -459,7 +459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4224035178689755823, guid: e0162eec6752ff540a2f05580343fb63, type: 3}
       propertyPath: npcName
-      value: Jim Bob
+      value: NPC Man
       objectReference: {fileID: 0}
     - target: {fileID: 7050454961276114454, guid: e0162eec6752ff540a2f05580343fb63, type: 3}
       propertyPath: m_Name

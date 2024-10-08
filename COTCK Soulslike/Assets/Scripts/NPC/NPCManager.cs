@@ -8,6 +8,7 @@ public class NPCManager : CharacterManager
     [HideInInspector] public NPCInteractionManager interactionManager;
     [HideInInspector] public NPCDialogueManager dialogueManager;
     [HideInInspector] public NPCAnimationManager animationManager;
+    [HideInInspector] public NPCMovementManager movementManager;
 
     protected override void Awake()
     {
@@ -16,6 +17,7 @@ public class NPCManager : CharacterManager
         interactionManager = GetComponent<NPCInteractionManager>();
         dialogueManager = GetComponent<NPCDialogueManager>();
         animationManager = GetComponent<NPCAnimationManager>();
+        movementManager = GetComponent<NPCMovementManager>();
 
     }
 }
