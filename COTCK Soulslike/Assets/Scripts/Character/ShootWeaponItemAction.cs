@@ -8,6 +8,7 @@ public class ShootWeaponItemAction : WeaponItemAction
     // TODO Play the correct animation
     [SerializeField] private string shoot_attack_01 = "Main_Light_Attack_01"; // Main means main hand
     public GameObject arrowPrefab;
+
     private Transform arrowSpawnPoint;
     public float arrowForce = 20f;
 
@@ -29,7 +30,10 @@ public class ShootWeaponItemAction : WeaponItemAction
         if (playerPerformingAction.isUsingRightHand)
         {
             playerPerformingAction.playerAnimatorManager.PlayTargetAttackActionAnimation(shoot_attack_01, true);
+
             arrowSpawnPoint = weaponPerformingAction.weaponModel.transform.Find("Weapon Pivot/Weapon Model/Arrow Spawn Point");
+            Debug.Log(arrowSpawnPoint != null);
+            // arrowSpawnPoint = weaponPerformingAction.weaponModel.GetComponentInChildren<>;
             ShootArrow(playerPerformingAction);
         }
 
@@ -43,6 +47,7 @@ public class ShootWeaponItemAction : WeaponItemAction
     {
         // Instantiate the arrow
         GameObject arrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, arrowSpawnPoint.rotation);
+        Debug.Log(arrowSpawnPoint.position);
 
         // Apply force in the direction the player is aiming
         Rigidbody rb = arrow.GetComponent<Rigidbody>();
