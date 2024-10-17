@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &307233687 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4110313967536934738, guid: 29ad53c4d3966b54c96e2f4281b221b6, type: 3}
+  m_PrefabInstance: {fileID: 985182896}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f35daebf4d729c41b404023b43c47bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &985182896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -134,6 +145,10 @@ PrefabInstance:
     - target: {fileID: 1351390492694500521, guid: 29ad53c4d3966b54c96e2f4281b221b6, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110313967536934738, guid: 29ad53c4d3966b54c96e2f4281b221b6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5736653411156375586, guid: 29ad53c4d3966b54c96e2f4281b221b6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -264,7 +279,7 @@ PrefabInstance:
     - target: {fileID: 90441158619586104, guid: 8cfaf3d519bc1674b8c9ed20ac87300a, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 307233687}
     - target: {fileID: 90441158619586104, guid: 8cfaf3d519bc1674b8c9ed20ac87300a, type: 3}
       propertyPath: cameraPivotTransform
       value: 
@@ -636,6 +651,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2119054018879756120, guid: 44fc4842dc4f3ee428d438930f0e9384, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 307233687}
     - target: {fileID: 5295843297988647809, guid: 44fc4842dc4f3ee428d438930f0e9384, type: 3}
       propertyPath: m_Name
       value: World Save Game Manager
@@ -794,6 +813,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3538411260266075536, guid: 59b29ca315b84ca4ea99c9471ec3b956, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 307233687}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
