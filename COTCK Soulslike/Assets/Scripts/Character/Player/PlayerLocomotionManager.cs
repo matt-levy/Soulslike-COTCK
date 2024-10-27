@@ -88,18 +88,18 @@ public class PlayerLocomotionManager : CharacterLocomotionManager
         {
             if (PlayerInputManager.instance.moveAmount > 0.5f) 
             {
-                player.characterController.Move(moveDirection * runningSpeed * Time.deltaTime);
+                player.characterController.Move(runningSpeed * Time.deltaTime * moveDirection);
             } 
             else if (PlayerInputManager.instance.moveAmount <= 0.5f) 
             {
-                player.characterController.Move(moveDirection * walkingSpeed * Time.deltaTime);
+                player.characterController.Move(Time.deltaTime * walkingSpeed * moveDirection);
             }
         }
 
         if (PlayerInputManager.instance.moveAmount > 0.5f) {
-            player.characterController.Move(moveDirection * runningSpeed * Time.deltaTime);
+            player.characterController.Move(runningSpeed * Time.deltaTime * moveDirection);
         } else if (PlayerInputManager.instance.moveAmount <= 0.5f) {
-            player.characterController.Move(moveDirection * walkingSpeed * Time.deltaTime);
+            player.characterController.Move(Time.deltaTime * walkingSpeed * moveDirection);
         }
     }
 

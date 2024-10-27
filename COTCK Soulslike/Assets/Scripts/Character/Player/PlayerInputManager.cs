@@ -26,6 +26,10 @@ public class PlayerInputManager : MonoBehaviour
     [SerializeField] private bool sprintInput = false;
     [SerializeField] private bool RB_Input = false;
 
+    [Header("Lock On Input")]
+
+    [SerializeField] private bool lockOnInput = false;
+
 
     private void Awake() {
         if (instance == null) {
@@ -70,7 +74,9 @@ public class PlayerInputManager : MonoBehaviour
             // Holding input sets bool to true, releasing sets bool to false
             playerControls.PlayerActions.Sprint.performed += i => sprintInput = true;
             playerControls.PlayerActions.Sprint.canceled += i => sprintInput = false;
+
             playerControls.PlayerActions.RB.performed += i => RB_Input = true;
+            playerControls.PlayerActions.LockOn.performed += i => lockOnInput = true;
         }
 
         playerControls.Enable();
@@ -92,6 +98,7 @@ public class PlayerInputManager : MonoBehaviour
         HandleCameraMovementInput();
         HandleDodgeInput();
         HandleSprinting();
+        HandleLockOnInput();
         HandleRBInput();
     }
 
@@ -114,6 +121,15 @@ public class PlayerInputManager : MonoBehaviour
         if (player == null)
             return;
 
+        if (moveAmount != 0) 
+        {
+            player.isMoving.Value = true;
+        }
+        else
+        {
+            player.isMoving.Value = false;
+        }
+        
         // x is 0 because we only strafe when locked on
         player.playerAnimatorManager.UpdateAnimatorMovementParameters(0, moveAmount, player.isSprinting);
 
@@ -149,6 +165,50 @@ public class PlayerInputManager : MonoBehaviour
         else
         {
             player.isSprinting = false;
+        }
+    }
+
+    // For some reason, calling this method stops it completely
+    // Figure out why
+    private void HandleLockOnInput()
+    {
+
+        // Check for dead target
+        if (player.isLockedOn.Value)
+        {   
+            if (player.playerCombatManager.currentTarget != null)
+                return;
+
+            if (player.playerCombatManager.currentTarget.isDead)
+            {
+                player.isLockedOn.Value = false;
+            }
+
+            // Attempt to find new target or unlock completely
+        }
+
+
+        if (lockOnInput && player.isLockedOn.Value)
+        {
+            player.isLockedOn.Value = false;
+            lockOnInput = false;
+            PlayerCamera.instance.ClearLockOnTargets();
+            return;
+        }
+
+        if (lockOnInput && !player.isLockedOn.Value)
+        {
+            lockOnInput = false;
+            
+            // If we are aiming with the crossbow, dont allow lock on
+            
+            PlayerCamera.instance.HandleLocatingLockOnTargets();
+
+            if (PlayerCamera.instance.nearestLockOnTarget != null)
+            {
+                player.playerCombatManager.SetTarget(PlayerCamera.instance.nearestLockOnTarget);
+                player.isLockedOn.Value = true;
+            }
         }
     }
 

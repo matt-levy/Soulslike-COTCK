@@ -33,8 +33,10 @@ public class UI_StatBar : MonoBehaviour
 
         if (scaleBarLengthWithStats)
         {
-            // Scale the transform of the object
             rectTransform.sizeDelta = new Vector2(maxValue * widthScaleMultiplier, rectTransform.sizeDelta.y);
+            
+            // Resets position of bars based on layout group settings
+            PlayerUIManager.instance.playerUIHudManager.RefreshHUD();
         }
     }
 

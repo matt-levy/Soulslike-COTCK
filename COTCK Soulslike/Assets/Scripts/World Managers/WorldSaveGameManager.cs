@@ -144,6 +144,7 @@ public class WorldSaveGameManager : MonoBehaviour
         // Temporary code
         player.vitality = new TrackedInt(15);
         player.endurance = new TrackedInt(15);
+
     
         // Save new created character stats instantly
         SaveGame();
