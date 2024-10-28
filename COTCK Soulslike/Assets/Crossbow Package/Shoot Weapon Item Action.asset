@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d56e5f19573394ca019e0a31d24251, type: 3}
+  m_Name: Shoot Weapon Item Action
+  m_EditorClassIdentifier: 
+  actionID: 1
+  shoot_attack_01: Main_Light_Attack_01
+  arrowPrefab: {fileID: 384338479961957473, guid: ceafe6a3fbf7ba8469d6b0e30335df5f, type: 3}
+  arrowForce: 20
