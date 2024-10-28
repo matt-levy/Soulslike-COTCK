@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class AICharacterCombatManager : CharacterCombatManager
 {
+    [Header("Target Info")]
+    public float distanceFromTarget;
+
     [Header("Detection")]
     [SerializeField] private float detectionRadius = 15f;
     [SerializeField] private float minDetectionAngle = -35f;
     [SerializeField] private float maxDetectionAngle = 35f;
+
+    [Header("Action Recovery")]
+    public float actionRecoveryTimer = 0;
+
+    [Header("Attack Rotation Speed")]
+    public float attackRotationSpeed = 25f;
 
     public void FindTargetViaLineOfSite(AICharacterManager aiCharacter)
     {
@@ -49,6 +58,52 @@ public class AICharacterCombatManager : CharacterCombatManager
                 }
             }
             
+        }
+    }
+
+    public void RotateTowardsAgent(AICharacterManager aiCharacter)
+    {
+        if (aiCharacter.isMoving.Value)
+        {
+            aiCharacter.transform.rotation = aiCharacter.navMeshAgent.transform.rotation;
+        }
+    }
+
+    public void RotateTowardsTargetWhilstAttacking(AICharacterManager aiCharacter)
+    {
+        if (currentTarget == null)
+            return;
+
+        if (!aiCharacter.canRotate)
+            return;
+
+        if (!aiCharacter.isPerformingAction)
+            return;
+
+        Vector3 targetDirection = currentTarget.transform.position - aiCharacter.transform.position;
+        targetDirection.y = 0;
+        targetDirection.Normalize();
+
+        if (targetDirection == Vector3.zero)
+        {
+            targetDirection = aiCharacter.transform.forward;
+        }
+
+        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+        
+        aiCharacter.transform.rotation = Quaternion.Slerp(aiCharacter.transform.rotation, targetRotation, attackRotationSpeed * Time.deltaTime);
+
+    }
+
+
+    public void HandleActionRecovery(AICharacterManager aiCharacter)
+    {
+        if (actionRecoveryTimer > 0)
+        {
+            if (!aiCharacter.isPerformingAction)
+            {
+                actionRecoveryTimer -= Time.deltaTime;
+            }
         }
     }
 }

@@ -1835,7 +1835,7 @@ Transform:
   m_GameObject: {fileID: 6610946677562054648}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 0, z: -10}
+  m_LocalPosition: {x: 18, y: -11.01, z: -6.133045}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1888,6 +1888,8 @@ MonoBehaviour:
   currentState: {fileID: 11400000, guid: b4d2bca22351a0b44abdb1464e940eb8, type: 2}
   idle: {fileID: 11400000, guid: b4d2bca22351a0b44abdb1464e940eb8, type: 2}
   pursueTarget: {fileID: 11400000, guid: 3cd04bb1aeab1d64c89bc3a31a92027e, type: 2}
+  combatStance: {fileID: 11400000, guid: 0cbe74765f56065428b627aa3d2edd67, type: 2}
+  attack: {fileID: 11400000, guid: 9fb07440440453e44a712d961d05f10b, type: 2}
 --- !u!114 &-4390211842183809836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1903,9 +1905,12 @@ MonoBehaviour:
   currentAttackType: 0
   currentTarget: {fileID: 0}
   lockOnTransform: {fileID: 6326061391238987824}
+  distanceFromTarget: 0
   detectionRadius: 15
   minDetectionAngle: -35
   maxDetectionAngle: 35
+  actionRecoveryTimer: 0
+  attackRotationSpeed: 25
 --- !u!114 &6837230034640633961
 MonoBehaviour:
   m_ObjectHideFlags: 0
