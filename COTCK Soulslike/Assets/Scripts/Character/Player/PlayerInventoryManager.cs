@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerInventoryManager : CharacterInventoryManager
 {
@@ -9,11 +10,17 @@ public class PlayerInventoryManager : CharacterInventoryManager
 
     public ColorPassive currentColorPassive;
 
+    public bool isPassiveActive = false;
+
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        Scene currentScene = SceneManager.GetActiveScene();
+        string currentSceneName = currentScene.name;
+
+        if (currentSceneName == "World" && !isPassiveActive)
         {
+            isPassiveActive = true;
             ActivateColorPassive();
         }
     }
