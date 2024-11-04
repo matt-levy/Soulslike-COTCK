@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Soulslike-COTCK\\COTCK Soulslike\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|d:\\soulslike-cotck\\cotck soulslike\\assets\\scripts\\npc\\npcuimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72A6B0C2-6895-B645-A56E-44654131D49A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\npc\\npcuimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NPCUIManager.cs",
+              "DocumentMoniker": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\NPC\\NPCUIManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\NPC\\NPCUIManager.cs",
+              "ToolTip": "D:\\Soulslike-COTCK\\COTCK Soulslike\\Assets\\Scripts\\NPC\\NPCUIManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\NPC\\NPCUIManager.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAUwIwAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T21:49:32.069Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
