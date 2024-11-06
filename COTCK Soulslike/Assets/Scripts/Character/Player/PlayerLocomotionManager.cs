@@ -105,22 +105,62 @@ public class PlayerLocomotionManager : CharacterLocomotionManager
 
     private void HandleRotation() 
     {
+        if (player.isDead)
+            return;
+
         if (!player.canRotate)
             return;
 
-        targetRotationDirection = Vector3.zero;
-        targetRotationDirection = PlayerCamera.instance.cameraObject.transform.forward * verticalMovement;
-        targetRotationDirection += PlayerCamera.instance.cameraObject.transform.right * horizontalMovement;
-        targetRotationDirection.Normalize();
-        targetRotationDirection.y = 0;
+        if (player.isLockedOn.Value)
+        {
+            if (player.isSprinting)
+            {
+                Vector3 targetDirection = Vector3.zero;
+                targetDirection = PlayerCamera.instance.cameraObject.transform.forward * verticalMovement;
+                targetDirection += PlayerCamera.instance.cameraObject.transform.right * horizontalMovement;
+                targetDirection.Normalize();
+                targetDirection.y = 0;
 
-        if (targetRotationDirection == Vector3.zero) {
-            targetRotationDirection = transform.forward;
+                if (targetDirection == Vector3.zero)
+                    targetDirection = transform.forward;
+
+                Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+                Quaternion finalRotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+                transform.rotation = finalRotation;
+            }
+            else
+            {
+                if (player.playerCombatManager.currentTarget == null)
+                    return;
+
+                Vector3 targetDirection;
+                targetDirection = player.playerCombatManager.currentTarget.transform.position - transform.position;
+                targetDirection.y = 0;
+                targetDirection.Normalize();
+
+                Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+                Quaternion finalRotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+                transform.rotation = finalRotation;
+
+            }
         }
+        else
+        {
+            targetRotationDirection = Vector3.zero;
+            targetRotationDirection = PlayerCamera.instance.cameraObject.transform.forward * verticalMovement;
+            targetRotationDirection += PlayerCamera.instance.cameraObject.transform.right * horizontalMovement;
+            targetRotationDirection.Normalize();
+            targetRotationDirection.y = 0;
 
-        Quaternion newRotation = Quaternion.LookRotation(targetRotationDirection);
-        Quaternion targetRotation = Quaternion.Slerp(transform.rotation, newRotation, rotationSpeed * Time.deltaTime);
-        transform.rotation = targetRotation;
+            if (targetRotationDirection == Vector3.zero) 
+            {
+                targetRotationDirection = transform.forward;
+            }
+
+            Quaternion newRotation = Quaternion.LookRotation(targetRotationDirection);
+            Quaternion targetRotation = Quaternion.Slerp(transform.rotation, newRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = targetRotation;
+        }
     }
 
     public void HandleSprinting()

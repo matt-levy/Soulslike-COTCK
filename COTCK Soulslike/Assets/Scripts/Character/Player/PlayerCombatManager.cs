@@ -41,4 +41,12 @@ public class PlayerCombatManager : CharacterCombatManager
         player.currentStamina.Value -= staminaDeducted;
 
     }
+
+    public override void SetTarget(CharacterManager newTarget)
+    {
+        base.SetTarget(newTarget);
+
+        PlayerCamera.instance.SetLockCameraHeight();
+    }
+
 }

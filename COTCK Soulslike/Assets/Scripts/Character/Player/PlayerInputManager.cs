@@ -25,6 +25,7 @@ public class PlayerInputManager : MonoBehaviour
     [SerializeField] private bool dodgeInput = false;
     [SerializeField] private bool sprintInput = false;
     [SerializeField] private bool RB_Input = false;
+    //[SerializeField] private bool interactInput = false;
 
     [Header("Lock On Input")]
 
@@ -77,6 +78,8 @@ public class PlayerInputManager : MonoBehaviour
 
             playerControls.PlayerActions.RB.performed += i => RB_Input = true;
             playerControls.PlayerActions.LockOn.performed += i => lockOnInput = true;
+
+            //playerControls.PlayerActions.Interact.performed += i => interactInput = true;
         }
 
         playerControls.Enable();
@@ -130,10 +133,15 @@ public class PlayerInputManager : MonoBehaviour
             player.isMoving.Value = false;
         }
         
-        // x is 0 because we only strafe when locked on
-        player.playerAnimatorManager.UpdateAnimatorMovementParameters(0, moveAmount, player.isSprinting);
-
         // If we are locked on, pass vertical and horizontal params
+        if (!player.isLockedOn.Value || player.isSprinting)
+        {
+            player.playerAnimatorManager.UpdateAnimatorMovementParameters(0, moveAmount, player.isSprinting);
+        }
+        else
+        {
+            player.playerAnimatorManager.UpdateAnimatorMovementParameters(horizontalInput, verticalInput, player.isSprinting);
+        }
     }
 
     private void HandleCameraMovementInput() 
@@ -173,10 +181,9 @@ public class PlayerInputManager : MonoBehaviour
     private void HandleLockOnInput()
     {
 
-        // Check for dead target
         if (player.isLockedOn.Value)
         {   
-            if (player.playerCombatManager.currentTarget != null)
+            if (player.playerCombatManager.currentTarget == null)
                 return;
 
             if (player.playerCombatManager.currentTarget.isDead)
@@ -190,9 +197,9 @@ public class PlayerInputManager : MonoBehaviour
 
         if (lockOnInput && player.isLockedOn.Value)
         {
-            player.isLockedOn.Value = false;
             lockOnInput = false;
             PlayerCamera.instance.ClearLockOnTargets();
+            player.isLockedOn.Value = false;
             return;
         }
 
@@ -227,4 +234,14 @@ public class PlayerInputManager : MonoBehaviour
             player.playerCombatManager.PerformWeaponBasedAction(player.playerInventoryManager.currentRightHandWeapon.oh_RB_Action, player.playerInventoryManager.currentRightHandWeapon);
         }
     }
+
+    // private void HandleInteractInput()
+    // {
+    //     if (interactInput)
+    //     {
+    //         interactInput = false;
+
+
+    //     }
+    // }
 }

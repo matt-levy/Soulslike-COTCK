@@ -9,6 +9,8 @@ public class AICharacterManager : CharacterManager
 {
     [HideInInspector] public AICharacterCombatManager aiCharacterCombatManager;
     [HideInInspector] public AICharacterLocomotionManager aICharacterLocomotionManager;
+    [HideInInspector] public AICharacterInventoryManager aiCharacterInventoryManager;
+    [HideInInspector] public AICharacterEquipmentManager aiCharacterEquipmentManager;
 
     [Header("Navmesh Agent")]
     public NavMeshAgent navMeshAgent;
@@ -35,6 +37,42 @@ public class AICharacterManager : CharacterManager
         pursueTarget = Instantiate(pursueTarget);
 
         currentState = idle;
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+
+        maxHealth = 100;
+        currentHealth.Value = 100;
+
+        maxStamina = 200;
+        currentStamina.Value = 200;
+
+        currentHealth.OnValueChanged += CheckHP;
+    }
+
+    private void OnDestroy()
+    {
+        currentHealth.OnValueChanged -= CheckHP;
+    }
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+
+        if (characterUIManager.hasFloatingHPBar)
+            currentHealth.OnValueChanged += characterUIManager.OnHPChanged;
+        
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+
+        currentHealth.OnValueChanged -= CheckHP;
+        if (characterUIManager.hasFloatingHPBar)
+            currentHealth.OnValueChanged -= characterUIManager.OnHPChanged;
     }
 
     protected override void Update()
@@ -69,6 +107,9 @@ public class AICharacterManager : CharacterManager
 
         if (aiCharacterCombatManager.currentTarget != null)
         {
+            aiCharacterCombatManager.targetsDirection = aiCharacterCombatManager.currentTarget.transform.position - transform.position;
+            Debug.Log("target's direction: " + aiCharacterCombatManager.targetsDirection);
+            aiCharacterCombatManager.viewableAngle = WorldUtilityManager.instance.GetAngleOfTarget(transform, aiCharacterCombatManager.targetsDirection);
             aiCharacterCombatManager.distanceFromTarget = Vector3.Distance(transform.position, aiCharacterCombatManager.currentTarget.transform.position);
         }
 
@@ -76,7 +117,7 @@ public class AICharacterManager : CharacterManager
         {
             Vector3 agentDestination = navMeshAgent.destination;
             float remainingDistance = Vector3.Distance(agentDestination, transform.position);
-            Debug.Log(navMeshAgent.destination);
+            //Debug.Log(navMeshAgent.destination);
 
             if (remainingDistance > navMeshAgent.stoppingDistance)
             {

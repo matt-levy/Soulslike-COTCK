@@ -13,8 +13,6 @@ public class PlayerManager : CharacterManager
     
     public FixedString64Bytes characterName;
 
-    public bool isUsingRightHand = false;
-    public bool isUsingLeftHand = false;
 
     protected override void Awake()
     {
@@ -34,19 +32,6 @@ public class PlayerManager : CharacterManager
 
     }
 
-    public void SetCharacterActionHand(bool rightHandedAction) 
-    {
-        if (rightHandedAction)
-        {
-            isUsingLeftHand = false;
-            isUsingRightHand = true;
-        }
-        else
-        {
-            isUsingRightHand = false;
-            isUsingLeftHand = true;
-        }
-    }
 
     protected override void Start()
     {

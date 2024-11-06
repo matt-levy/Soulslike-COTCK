@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,11 +7,14 @@ public class AICharacterCombatManager : CharacterCombatManager
 {
     [Header("Target Info")]
     public float distanceFromTarget;
+    public float viewableAngle;
+    public Vector3 targetsDirection;
+
 
     [Header("Detection")]
     [SerializeField] private float detectionRadius = 15f;
-    [SerializeField] private float minDetectionAngle = -35f;
-    [SerializeField] private float maxDetectionAngle = 35f;
+    public float minFOV = -35f;
+    public float maxFOV = 35f;
 
     [Header("Action Recovery")]
     public float actionRecoveryTimer = 0;
@@ -18,8 +22,16 @@ public class AICharacterCombatManager : CharacterCombatManager
     [Header("Attack Rotation Speed")]
     public float attackRotationSpeed = 25f;
 
+    protected override void Awake()
+    {
+        base.Awake();
+
+        lockOnTransform = GetComponentInChildren<LockOnTarget>().transform;
+    }
+
     public void FindTargetViaLineOfSite(AICharacterManager aiCharacter)
     {
+       
         if (currentTarget != null)
             return;
 
@@ -38,9 +50,9 @@ public class AICharacterCombatManager : CharacterCombatManager
             {
                 // if potential target is found, it must be in front of us
                 Vector3 targetDirection = targetCharacter.transform.position - aiCharacter.transform.position;
-                float viewableAngle = Vector3.Angle(targetDirection, aiCharacter.transform.forward);
+                float angleOfPotentialTarget = Vector3.Angle(targetDirection, aiCharacter.transform.forward);
 
-                if (viewableAngle > minDetectionAngle && viewableAngle < maxDetectionAngle)
+                if (angleOfPotentialTarget > minFOV && angleOfPotentialTarget < maxFOV)
                 {
                     // lastly, check for environmental blockage
                     if (Physics.Linecast(
@@ -53,13 +65,65 @@ public class AICharacterCombatManager : CharacterCombatManager
                     }
                     else
                     {
+                        targetsDirection = targetCharacter.transform.position - transform.position;
+                        viewableAngle = WorldUtilityManager.instance.GetAngleOfTarget(transform, targetsDirection);
                         aiCharacter.characterCombatManager.SetTarget(targetCharacter);
+                        PivotTowardsTarget(aiCharacter);
                     }
                 }
             }
             
         }
     }
+
+    public void PivotTowardsTarget(AICharacterManager aiCharacter)
+    {
+        // Play pivot anim based on viewable angle of current target
+        if (aiCharacter.isPerformingAction)
+            return;
+
+        // Play Animations based on turn angle 
+        if (viewableAngle >= 20 && viewableAngle <= 60)
+        {
+            aiCharacter.characterAnimatorManager.PlayTargetActionAnimation("Right_Turn_90", true);
+        }
+        else if (viewableAngle <= -20 && viewableAngle >= -60)
+        {
+            aiCharacter.characterAnimatorManager.PlayTargetActionAnimation("Left_Turn_90", true);
+        }
+        else if (viewableAngle >= 61 && viewableAngle <= 110)
+        {
+            aiCharacter.characterAnimatorManager.PlayTargetActionAnimation("Right_Turn_180", true);
+        }
+        else if (viewableAngle <= -61 && viewableAngle >= -110)
+        {
+            aiCharacter.characterAnimatorManager.PlayTargetActionAnimation("Left_Turn_180", true);
+        }
+        
+    }
+
+    // private IEnumerator PivotCoroutine(AICharacterManager aiCharacter, float rotationSpeed = 0.2f)
+    // {
+    //     while (Math.Abs(viewableAngle) > 0.1f)
+    //     {
+    //         float step = rotationSpeed * Time.deltaTime;
+
+    //         Vector3 direction = aiCharacter.aiCharacterCombatManager.targetsDirection;
+    //         direction.y = 0;
+    //         Quaternion targetRotation = Quaternion.LookRotation(direction);
+
+
+    //         aiCharacter.transform.rotation = Quaternion.RotateTowards(aiCharacter.transform.rotation, targetRotation, step);
+
+    //         viewableAngle = WorldUtilityManager.instance.GetAngleOfTarget(aiCharacter.transform, direction);
+
+    //         aiCharacter.characterAnimatorManager.PlayTargetActionAnimation("Pivot_Test", true, false);
+
+    //         yield return null;
+    //     }
+
+    //     aiCharacter.transform.rotation = Quaternion.LookRotation(aiCharacter.aiCharacterCombatManager.currentTarget.transform.position - aiCharacter.transform.position);
+    // }
 
     public void RotateTowardsAgent(AICharacterManager aiCharacter)
     {
@@ -94,7 +158,6 @@ public class AICharacterCombatManager : CharacterCombatManager
         aiCharacter.transform.rotation = Quaternion.Slerp(aiCharacter.transform.rotation, targetRotation, attackRotationSpeed * Time.deltaTime);
 
     }
-
 
     public void HandleActionRecovery(AICharacterManager aiCharacter)
     {

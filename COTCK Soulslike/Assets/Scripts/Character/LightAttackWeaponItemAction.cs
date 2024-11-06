@@ -13,8 +13,8 @@ public class LightAttackWeaponItemAction : WeaponItemAction
 
         // Check for stops
 
-        if (playerPerformingAction.currentStamina.Value <= 0)
-            return;
+        // if (playerPerformingAction.currentStamina.Value <= 0)
+        //     return;
 
 
         PerformLightAttack(playerPerformingAction, weaponPerformingAction);

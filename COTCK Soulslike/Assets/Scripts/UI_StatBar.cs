@@ -9,16 +9,21 @@ public class UI_StatBar : MonoBehaviour
     [SerializeField] protected bool scaleBarLengthWithStats = true;
     [SerializeField] protected float widthScaleMultiplier = 1;
 
-    private Slider slider;
+    protected Slider slider;
     // variable to scale size of bar based on stat level
     // Secondary bar behind main bar for polish effect
 
-    private RectTransform rectTransform;
+    protected RectTransform rectTransform;
 
     protected virtual void Awake() 
     {
         slider = GetComponent<Slider>();
         rectTransform = GetComponent<RectTransform>();
+    }
+
+    protected virtual void Start()
+    {
+
     }
 
     public virtual void SetStat(int newValue)

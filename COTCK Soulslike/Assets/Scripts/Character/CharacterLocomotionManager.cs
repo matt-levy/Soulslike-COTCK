@@ -22,6 +22,11 @@ public class CharacterLocomotionManager : MonoBehaviour
         character = GetComponent<CharacterManager>();
     }
 
+    private void Start()
+    {
+        groundLayer = LayerMask.GetMask("Default");
+    }
+
     protected virtual void Update()
     {
         HandleGroundCheck();

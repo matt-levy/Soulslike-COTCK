@@ -12,6 +12,7 @@ public class CharacterManager : MonoBehaviour
     [HideInInspector] public CharacterEffectsManager characterEffectsManager;
     [HideInInspector] public CharacterCombatManager characterCombatManager;
     [HideInInspector] public CharacterAnimatorManager characterAnimatorManager;
+    [HideInInspector] public CharacterUIManager characterUIManager;
      
     [Header("Character Group")]
     public CharacterGroup characterGroup;
@@ -29,6 +30,8 @@ public class CharacterManager : MonoBehaviour
     public bool isSprinting = false;
     public TrackedBool isLockedOn = new(false);
     public TrackedBool isMoving = new(false);
+    public bool isUsingRightHand = false;
+    public bool isUsingLeftHand = false;
 
     [Header("Stats")]
     public TrackedInt endurance = new(15);
@@ -48,6 +51,7 @@ public class CharacterManager : MonoBehaviour
         characterEffectsManager = GetComponent<CharacterEffectsManager>();
         characterCombatManager = GetComponent<CharacterCombatManager>();
         characterAnimatorManager = GetComponent<CharacterAnimatorManager>();
+        characterUIManager = GetComponent<CharacterUIManager>();
     }
 
     protected virtual void Start()
@@ -77,6 +81,15 @@ public class CharacterManager : MonoBehaviour
 
     }
 
+    protected virtual void OnEnable()
+    {
+
+    }
+
+    protected virtual void OnDisable()
+    {
+
+    }
     protected virtual void IgnoreMyOwnColliders()
     {
         Collider characterControllerCollider = GetComponent<Collider>();
@@ -153,5 +166,19 @@ public class CharacterManager : MonoBehaviour
     public void OnIsMovingChanged(bool oldStatus, bool newStatus)
     {
         animator.SetBool("isMoving", isMoving.Value);
+    }
+
+    public void SetCharacterActionHand(bool rightHandedAction) 
+    {
+        if (rightHandedAction)
+        {
+            isUsingLeftHand = false;
+            isUsingRightHand = true;
+        }
+        else
+        {
+            isUsingRightHand = false;
+            isUsingLeftHand = true;
+        }
     }
 }

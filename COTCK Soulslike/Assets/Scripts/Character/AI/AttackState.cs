@@ -51,8 +51,8 @@ public class AttackState : AIState
             return this;
         }
 
-        //if (pivotAfterAttack)
-        //  aiCharacter.aiCharacterCombatManager.PivotTowardsTarget(aiCharacter);
+        if (pivotAfterAttack)
+            aiCharacter.aiCharacterCombatManager.PivotTowardsTarget(aiCharacter);
 
         return SwitchState(aiCharacter, aiCharacter.combatStance);
 

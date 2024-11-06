@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ArrowSpawnPoint
+  - NPC
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -13,8 +16,8 @@ TagManager:
   - UI
   - Character
   - Damagable Character
-  - 
-  - 
+  - Player
+  - Enemy
   - Damage Collider
   - 
   - 

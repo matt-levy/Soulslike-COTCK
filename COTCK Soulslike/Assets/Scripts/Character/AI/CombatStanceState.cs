@@ -31,6 +31,15 @@ public class CombatStanceState : AIState
         
         // If you want the ai character to face and turn towards its target when youre outside its fov
         // Implenetation here...
+        if (!aiCharacter.isMoving.Value)
+        {
+            if (aiCharacter.aiCharacterCombatManager.viewableAngle < -30 || aiCharacter.aiCharacterCombatManager.viewableAngle > 30)
+            {
+                aiCharacter.aiCharacterCombatManager.PivotTowardsTarget(aiCharacter);
+            }
+        }
+
+
 
         aiCharacter.aiCharacterCombatManager.RotateTowardsAgent(aiCharacter);
 

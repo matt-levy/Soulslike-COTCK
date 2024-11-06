@@ -19,7 +19,6 @@ GameObject:
   - component: {fileID: -2031263643160251195}
   - component: {fileID: 6661032379745765912}
   - component: {fileID: 1638415560932234023}
-  - component: {fileID: 5946064477586085973}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -36,7 +35,7 @@ Transform:
   m_GameObject: {fileID: 1351390492694500521}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 17.61, y: -9.34, z: 24.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -58,6 +57,10 @@ MonoBehaviour:
   characterController: {fileID: 0}
   animator: {fileID: 0}
   characterEffectsManager: {fileID: 0}
+  characterCombatManager: {fileID: 0}
+  characterAnimatorManager: {fileID: 0}
+  characterUIManager: {fileID: 0}
+  characterGroup: 0
   isDead: 0
   isPerformingAction: 0
   canRotate: 1
@@ -65,8 +68,21 @@ MonoBehaviour:
   isGrounded: 1
   applyRootMotion: 0
   isSprinting: 0
-  isLockedOn: 0
+  isLockedOn:
+    _value: 0
+  isMoving:
+    _value: 0
+  isUsingRightHand: 0
+  isUsingLeftHand: 0
+  endurance:
+    _value: 15
+  currentStamina:
+    _value: 0
   maxStamina: 0
+  vitality:
+    _value: 15
+  currentHealth:
+    _value: 0
   maxHealth: 0
   playerLocomotionManager: {fileID: 0}
   playerAnimatorManager: {fileID: 0}
@@ -141,8 +157,6 @@ MonoBehaviour:
       byte0059: 0
       byte0060: 0
       byte0061: 0
-  isUsingRightHand: 0
-  isUsingLeftHand: 0
 --- !u!114 &6811470492220480994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 455a8a662360cf74f8e68fef6d7f029f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentAttackType: 0
   currentTarget: {fileID: 0}
   lockOnTransform: {fileID: 1487157213165158232}
   currentWeaponBeingUsed: {fileID: 0}
@@ -180,12 +195,12 @@ MonoBehaviour:
   gavityForce: -5.55
   verticalMovement: 0
   horizontalMovement: 0
-  walkingSpeed: 2
-  runningSpeed: 5
-  sprintingSpeed: 8
-  rotationSpeed: 15
-  sprintingStaminaCost: 1
-  dodgeStaminaCost: 2
+  walkingSpeed: 1
+  runningSpeed: 2
+  sprintingSpeed: 4
+  rotationSpeed: 8
+  sprintingStaminaCost: 10
+  dodgeStaminaCost: 25
 --- !u!143 &5254481373347639168
 CharacterController:
   m_ObjectHideFlags: 0
@@ -287,6 +302,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentRightHandWeapon: {fileID: 11400000, guid: 80d16e5536e45c441a40ceae51a432a4, type: 2}
   currentLeftHandWeapon: {fileID: 11400000, guid: 80d16e5536e45c441a40ceae51a432a4, type: 2}
+  currentColorPassive: {fileID: 0}
+  isPassiveActive: 0
 --- !u!114 &1638415560932234023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,33 +322,6 @@ MonoBehaviour:
   rightWeaponManager: {fileID: 0}
   rightHandWeaponModel: {fileID: 0}
   leftHandWeaponModel: {fileID: 0}
---- !u!54 &5946064477586085973
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1351390492694500521}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &4447175920999510206
 GameObject:
   m_ObjectHideFlags: 0
