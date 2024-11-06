@@ -77,4 +77,34 @@ public class PlayerEquipmentManager : CharacterEquipmentManager
             leftWeaponManager.SetWeaponDamage(player, player.playerInventoryManager.currentLeftHandWeapon);
         }
     }
+
+    // DAMAGE COLLIDERS
+
+    public void OpenDamageCollider()
+    {
+        if (player.isUsingRightHand)
+        {
+            rightWeaponManager.meleeDamageCollider.EnableDamageCollider();
+        } 
+        else if (player.isUsingLeftHand)
+        {
+            leftWeaponManager.meleeDamageCollider.EnableDamageCollider();
+        }
+
+        // Play whoosh sfx
+    }
+
+    public void CloseDamageCollider()
+    {
+        if (player.isUsingRightHand)
+        {
+            rightWeaponManager.meleeDamageCollider.DisableDamageCollider();
+        } 
+        else if (player.isUsingLeftHand)
+        {
+            leftWeaponManager.meleeDamageCollider.DisableDamageCollider();
+        }
+
+        // Play whoosh sfx
+    }
 }

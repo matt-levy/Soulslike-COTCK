@@ -20,4 +20,33 @@ public class PlayerCombatManager : CharacterCombatManager
         action.AttemptToPerformAction(player, weaponPerformingAction);
 
     }
+
+    public void DrainStaminaBasedOnAttack()
+    {
+        int staminaDeducted = 0;
+
+        if (currentWeaponBeingUsed == null)
+            return;
+
+        switch (currentAttackType)
+        {
+            case AttackType.LightAttack01:
+                staminaDeducted = currentWeaponBeingUsed.baseStaminaCost * currentWeaponBeingUsed.lightAttackStaminaMultiplier;
+                break;
+            default:
+                break;
+
+        }
+
+        player.currentStamina.Value -= staminaDeducted;
+
+    }
+
+    public override void SetTarget(CharacterManager newTarget)
+    {
+        base.SetTarget(newTarget);
+
+        PlayerCamera.instance.SetLockCameraHeight();
+    }
+
 }

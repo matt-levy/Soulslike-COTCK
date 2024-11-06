@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using Unity.Collections;
-using Unity.VisualScripting;
 
 public class PlayerManager : CharacterManager
 {
@@ -15,8 +13,6 @@ public class PlayerManager : CharacterManager
     
     public FixedString64Bytes characterName;
 
-    public bool isUsingRightHand = false;
-    public bool isUsingLeftHand = false;
 
     protected override void Awake()
     {
@@ -36,34 +32,29 @@ public class PlayerManager : CharacterManager
 
     }
 
-    public void SetCharacterActionHand(bool rightHandedAction) 
-    {
-        if (rightHandedAction)
-        {
-            isUsingLeftHand = false;
-            isUsingRightHand = true;
-        }
-        else
-        {
-            isUsingRightHand = false;
-            isUsingLeftHand = true;
-        }
-    }
 
     protected override void Start()
     {
         base.Start();
+
+        SetNewMaxHealthValue(0, vitality.Value);
+        SetNewMaxStaminaValue(0, endurance.Value);
 
 
         // Update our max health/stamina when leveling stats
         this.vitality.OnValueChanged += SetNewMaxHealthValue;
         this.endurance.OnValueChanged += SetNewMaxStaminaValue;
 
-        // Updates our health bars when a stat changes
+
+        // Updates our stamina/health bars when a stat changes
         this.currentStamina.OnValueChanged += PlayerUIManager.instance.playerUIHudManager.SetNewStaminaValue;
         this.currentStamina.OnValueChanged += playerStatsManager.ResetStaminaRegenTimer;
 
         this.currentHealth.OnValueChanged += PlayerUIManager.instance.playerUIHudManager.SetNewHealthValue;
+
+        this.isLockedOn.OnValueChanged += OnIsLockOnChanged;
+
+        currentHealth.OnValueChanged += CheckHP;
     }
 
     protected override void Update()
@@ -112,19 +103,20 @@ public class PlayerManager : CharacterManager
         this.maxHealth = playerStatsManager.CalculateTotalHealthBasedOnLevel(this.vitality.Value);
         this.currentHealth.Value = currentCharacterData.currentHealth;
         PlayerUIManager.instance.playerUIHudManager.SetMaxHealthValue(this.maxHealth);
+
     }
 
     private void SetNewMaxHealthValue(int oldVitality, int newVitality)
     {
         maxHealth = playerStatsManager.CalculateTotalHealthBasedOnLevel(newVitality);
         PlayerUIManager.instance.playerUIHudManager.SetMaxHealthValue(maxHealth);
-        currentHealth.Value = maxHealth;
+        currentHealth.Value = playerStatsManager.CalculateTotalHealthBasedOnLevel(newVitality);
     }
 
     private void SetNewMaxStaminaValue(int oldEndurance, int newEndurance)
     {
         maxStamina = playerStatsManager.CalculateTotalStaminaBasedOnLevel(newEndurance);
         PlayerUIManager.instance.playerUIHudManager.SetMaxStaminaValue(maxStamina);
-        currentStamina.Value = maxStamina;
+        currentStamina.Value = playerStatsManager.CalculateTotalStaminaBasedOnLevel(newEndurance);
     }
 }

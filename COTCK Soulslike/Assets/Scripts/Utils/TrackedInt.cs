@@ -1,6 +1,9 @@
+using UnityEngine;
+
+[System.Serializable]
 public class TrackedInt
 {
-    private int _value;
+    [SerializeField] private int _value;
 
     // Delegate and event to notify when the int has changed
     public delegate void OnValueChangedDelegate(int previousValue, int newValue);

@@ -3,12 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class CharacterManager : MonoBehaviour
 {
     [HideInInspector] public CharacterController characterController;
     [HideInInspector] public Animator animator;
     [HideInInspector] public CharacterEffectsManager characterEffectsManager;
+    [HideInInspector] public CharacterCombatManager characterCombatManager;
+    [HideInInspector] public CharacterAnimatorManager characterAnimatorManager;
+    [HideInInspector] public CharacterUIManager characterUIManager;
+     
+    [Header("Character Group")]
+    public CharacterGroup characterGroup;
+
 
     [Header("Status")]
     public bool isDead = false;
@@ -20,14 +28,18 @@ public class CharacterManager : MonoBehaviour
     public bool isGrounded = true;
     public bool applyRootMotion = false;
     public bool isSprinting = false;
+    public TrackedBool isLockedOn = new(false);
+    public TrackedBool isMoving = new(false);
+    public bool isUsingRightHand = false;
+    public bool isUsingLeftHand = false;
 
     [Header("Stats")]
-    public TrackedInt endurance = new(10);
-    public TrackedInt currentStamina = new(0);
+    public TrackedInt endurance = new(15);
+    public TrackedInt currentStamina;
     public int maxStamina;
 
-    public TrackedInt vitality = new(10);
-    public TrackedInt currentHealth = new(0);
+    public TrackedInt vitality = new(15);
+    public TrackedInt currentHealth;
     public int maxHealth;
 
 
@@ -37,11 +49,21 @@ public class CharacterManager : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         characterEffectsManager = GetComponent<CharacterEffectsManager>();
+        characterCombatManager = GetComponent<CharacterCombatManager>();
+        characterAnimatorManager = GetComponent<CharacterAnimatorManager>();
+        characterUIManager = GetComponent<CharacterUIManager>();
     }
 
     protected virtual void Start()
     {
         IgnoreMyOwnColliders();
+
+        isMoving.OnValueChanged += OnIsMovingChanged;
+    }
+
+    private void OnDestroy()
+    {
+        isMoving.OnValueChanged -= OnIsMovingChanged;
     }
 
     protected virtual void Update() 
@@ -49,10 +71,25 @@ public class CharacterManager : MonoBehaviour
 
     }
 
-    protected virtual void LateUpdate() {
+    protected virtual void FixedUpdate()
+    {
 
     }
 
+    protected virtual void LateUpdate() 
+    {
+
+    }
+
+    protected virtual void OnEnable()
+    {
+
+    }
+
+    protected virtual void OnDisable()
+    {
+
+    }
     protected virtual void IgnoreMyOwnColliders()
     {
         Collider characterControllerCollider = GetComponent<Collider>();
@@ -80,4 +117,68 @@ public class CharacterManager : MonoBehaviour
 
     }
 
+    public void OnIsLockOnChanged(bool old, bool isLockedOn)
+    {
+        if (!isLockedOn)
+        {
+            characterCombatManager.currentTarget = null;
+        }
+    }
+
+    public IEnumerator ProcessDeathEvent(bool manuallySelectDeathAnimation = false)
+    {
+        currentHealth.Value = 0;
+        isDead = true;
+
+        // Reset any flags here that need to be reset
+        // Nothing yet
+
+        // if not grounded, play aerial death animation
+
+        if (!manuallySelectDeathAnimation)
+        {
+            characterAnimatorManager.PlayTargetActionAnimation("Dead_01", true);
+        }
+
+        // Play some death sfx
+
+        yield return new WaitForSeconds(5);
+
+        // Award players with runes (if ai)
+
+        // disable character
+    }
+
+    public void CheckHP(int oldValue, int newValue)
+    {
+        if (currentHealth.Value <= 0)
+        {
+            Debug.Log("Health less than or equal to 0");
+            StartCoroutine(ProcessDeathEvent());
+        }
+
+        if (currentHealth.Value > maxHealth)
+        {
+            currentHealth.Value = maxHealth;
+        }
+    }
+
+    public void OnIsMovingChanged(bool oldStatus, bool newStatus)
+    {
+        animator.SetBool("isMoving", isMoving.Value);
+    }
+
+    public void SetCharacterActionHand(bool rightHandedAction) 
+    {
+        if (rightHandedAction)
+        {
+            isUsingLeftHand = false;
+            isUsingRightHand = true;
+        }
+        else
+        {
+            isUsingRightHand = false;
+            isUsingLeftHand = true;
+        }
+    }
 }

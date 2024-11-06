@@ -8,9 +8,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Main Menu.unity
     guid: b338f2fd95219544e80e3cd273772b7f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Scene_Main_Menu.unity
     guid: 827294a38eb0ddd48bda1620631885dd
+  - enabled: 0
+    path: Assets/Scenes/Scene_Main_Menu 1.unity
+    guid: b0d33414a2457cd4caa2aa396e69a169
+  - enabled: 0
+    path: Assets/Scenes/Test_Scene.unity
+    guid: 27ff13e90e3b5eb43a65713346fc03a7
+  - enabled: 1
+    path: Assets/Scenes/Test2.unity
+    guid: 97ff25348122a324c83b04a6e052a051
   - enabled: 1
     path: Assets/Scenes/World.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab

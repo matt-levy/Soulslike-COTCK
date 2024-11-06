@@ -18,19 +18,19 @@ public class TitleScreenLoadMenuInputManager : MonoBehaviour
         }
     }
 
-    // private void OnEnable()
-    // {
-    //     if (playerControls == null)
-    //     {
-    //         playerControls = new PlayerControls();
-    //         playerControls.UI.X.performed += i => deleteCharacterSlot = true;
-    //     }
+    private void OnEnable()
+    {
+        if (playerControls == null)
+        {
+            playerControls = new PlayerControls();
+            playerControls.UI.X.performed += i => deleteCharacterSlot = true;
+        }
 
-    //     playerControls.Enable();
-    // }
+        playerControls.Enable();
+    }
 
-    // private void OnDisable()
-    // {
-    //     playerControls.Disable();
-    // }
+    private void OnDisable()
+    {
+        playerControls.Disable();
+    }
 }

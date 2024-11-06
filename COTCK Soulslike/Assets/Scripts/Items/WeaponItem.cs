@@ -17,7 +17,7 @@ public class WeaponItem : Item
     public int physicalDamage = 0;
 
     // Weapon modifiers
-    // Light attack mod
+    public int lightAttack01DamageMultiplier = 1;
     // Heavy attack mod
     // Crit mod
 
@@ -29,6 +29,7 @@ public class WeaponItem : Item
     public int baseStaminaCost = 20;
     // Running attack cost
     // Light attack cost
+    public int lightAttackStaminaMultiplier = 1;
     // Heavy attack cost
 
     [Header("Actions")]

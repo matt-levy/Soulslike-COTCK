@@ -13,8 +13,8 @@ public class LightAttackWeaponItemAction : WeaponItemAction
 
         // Check for stops
 
-        if (playerPerformingAction.currentStamina.Value <= 0)
-            return;
+        // if (playerPerformingAction.currentStamina.Value <= 0)
+        //     return;
 
 
         PerformLightAttack(playerPerformingAction, weaponPerformingAction);
@@ -24,7 +24,7 @@ public class LightAttackWeaponItemAction : WeaponItemAction
     {
         if (playerPerformingAction.isUsingRightHand)
         {
-            playerPerformingAction.playerAnimatorManager.PlayTargetAttackActionAnimation(light_attack_01, true);
+            playerPerformingAction.playerAnimatorManager.PlayTargetAttackActionAnimation(AttackType.LightAttack01, light_attack_01, true);
         }
 
         if (playerPerformingAction.isUsingLeftHand)
