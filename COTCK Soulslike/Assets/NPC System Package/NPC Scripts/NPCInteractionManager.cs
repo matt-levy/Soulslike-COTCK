@@ -17,6 +17,7 @@ public class NPCInteractionManager : MonoBehaviour
     {
         if (isPlayerInRange && !npcManager.dialogueManager.IsDialogueActive() && Input.GetKeyDown(KeyCode.E))
         {
+            InteractionUIManager.Hide();
             npcManager.dialogueManager.ResumeDialogue(startDialogueNode);
         }
     }
@@ -25,6 +26,7 @@ public class NPCInteractionManager : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            InteractionUIManager.Show();
             isPlayerInRange = true;
         }
     }
@@ -33,6 +35,7 @@ public class NPCInteractionManager : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            InteractionUIManager.Hide();
             isPlayerInRange = false;
             npcManager.dialogueManager.EndDialogue();
         }
