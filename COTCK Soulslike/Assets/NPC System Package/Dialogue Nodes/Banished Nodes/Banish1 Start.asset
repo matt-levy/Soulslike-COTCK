@@ -20,5 +20,12 @@ MonoBehaviour:
   - "I shed a single tear, and it was enough for those bastards to strip me of everything.\r"
   - "Do I miss my old life? That is true. But it\u2019s better to accept this grim
     reality than to live in a delusion of false comfort.\r\r"
+  dialogueAudio:
+  - {fileID: 8300000, guid: 40e0469b2b97022459a03860e853ece4, type: 3}
+  - {fileID: 8300000, guid: 652a65826128cc744a528c5d8e9a4417, type: 3}
+  - {fileID: 8300000, guid: cdefb3e721bc31346a04aee00818880a, type: 3}
+  - {fileID: 8300000, guid: e7739e8a4bdb5f94aa43f128b0f0ffe7, type: 3}
+  - {fileID: 8300000, guid: fd36ecec9185019429a0d8953e3bf31e, type: 3}
+  - {fileID: 8300000, guid: de9b0d592c4f42f4499c1ab3a204941e, type: 3}
   choices: []
   isEndNode: 0

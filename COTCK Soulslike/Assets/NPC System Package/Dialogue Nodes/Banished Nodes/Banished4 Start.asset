@@ -16,5 +16,7 @@ MonoBehaviour:
   - "As much as I detest them, I can\u2019t help but feel bad for the Fools in the
     city. To be forced to wear a smile even on rainy days. Must be awful having to
     put up such a taxing facade."
+  dialogueAudio:
+  - {fileID: 8300000, guid: c54102b01b7f9554586449f4d7f231db, type: 3}
   choices: []
   isEndNode: 0

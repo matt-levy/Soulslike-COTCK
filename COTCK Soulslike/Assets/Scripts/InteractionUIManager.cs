@@ -18,6 +18,7 @@ public class InteractionUIManager : MonoBehaviour
         {
             Instance = this;
         }
+        Hide();
     }
 
     public static void Show()

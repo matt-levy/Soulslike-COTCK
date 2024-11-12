@@ -16,5 +16,7 @@ MonoBehaviour:
   - "When fighting beasts, the key to survival is dodging. My friend, Celia tried
     to face some savages head on\u2026it didn\u2019t go as well as she envisioned.
     Moral of the story is to dodge out of the way when the foe prepares to strike.\r"
+  dialogueAudio:
+  - {fileID: 8300000, guid: 765a0c017ca3aee43b457262656bfa03, type: 3}
   choices: []
   isEndNode: 0

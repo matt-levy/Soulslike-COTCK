@@ -16,5 +16,7 @@ MonoBehaviour:
   - "My Grandma says the world used to be colorful until the court stole all the
     colors. What I would give to have seen a world of color. Blue sky, green grass,
     it all sounds like a beautiful dream\u2026but still a dream nevertheless.\r"
+  dialogueAudio:
+  - {fileID: 8300000, guid: 41485c05d0ceff74b95f945b8190cfd4, type: 3}
   choices: []
   isEndNode: 0

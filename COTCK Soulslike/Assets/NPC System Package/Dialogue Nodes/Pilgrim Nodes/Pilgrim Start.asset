@@ -25,5 +25,13 @@ MonoBehaviour:
     to your journey. \r \r"
   - "We\u2019ll meet again, but until then take care on your travels. But remember,
     never trust the words of those with false smiles.\r\r \r"
+  dialogueAudio:
+  - {fileID: 8300000, guid: 5373569314bf63046983192a8ec6789c, type: 3}
+  - {fileID: 8300000, guid: 69e9fc0ef74c03a45b4aec5e952f4872, type: 3}
+  - {fileID: 8300000, guid: a36e7026a67efe24c91a4b3c896e6b6b, type: 3}
+  - {fileID: 8300000, guid: 95f986ef503cb8248aa5c85dd19791cf, type: 3}
+  - {fileID: 8300000, guid: 4af1d99fed3b7ca44891ae7c989f1245, type: 3}
+  - {fileID: 8300000, guid: c8844848582a94c40b837776cb81201f, type: 3}
+  - {fileID: 8300000, guid: b6e3eef05cb56c14a8322d88e189d5ad, type: 3}
   choices: []
   isEndNode: 0

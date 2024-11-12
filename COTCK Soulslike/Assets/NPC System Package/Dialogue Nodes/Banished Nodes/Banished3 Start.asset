@@ -15,5 +15,7 @@ MonoBehaviour:
   dialogueText:
   - My brother lives in the city. Living in bliss completely unaware his sister is
     suffering outside of the walls.
+  dialogueAudio:
+  - {fileID: 8300000, guid: c2a441f14d0cb6d4d9d5b96551760c1c, type: 3}
   choices: []
   isEndNode: 0

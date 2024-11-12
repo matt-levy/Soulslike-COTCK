@@ -11,8 +11,11 @@ public class NPCDialogueManager : MonoBehaviour
     [SerializeField] private NPCManager npcManager;
     private bool isDialogueActive = false;
 
+    private AudioSource audioSource;
+
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         npcManager = GetComponent<NPCManager>();
     }
 
@@ -52,11 +55,24 @@ public class NPCDialogueManager : MonoBehaviour
             npcUIManager.ShowContinueButton();
             string line = currentNode.dialogueText[currentLineIndex];
             npcUIManager.UpdateDialogueText(line);
+            PlayDialogueAudio();
         }
         else
         {
             npcUIManager.HideContinueButton();
             ShowChoices();
+        }
+    }
+
+    private void PlayDialogueAudio()
+    {
+        audioSource.Stop();
+        if (currentLineIndex < currentNode.dialogueAudio.Count)
+        {
+            if (currentNode.dialogueAudio[currentLineIndex] != null)
+            {
+                audioSource.PlayOneShot(currentNode.dialogueAudio[currentLineIndex]);
+            }
         }
     }
 
@@ -93,6 +109,7 @@ public class NPCDialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        audioSource.Stop();
         isDialogueActive = false;
         lastNode = currentNode;
         dialogueUI.SetActive(false);
