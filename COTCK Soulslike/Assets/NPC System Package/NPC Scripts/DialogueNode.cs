@@ -6,6 +6,7 @@ public class DialogueNode : ScriptableObject
 {
     [TextArea(1, 10)]
     public List<string> dialogueText;
+    public List<AudioClip> dialogueAudio;
     public List<DialogueChoice> choices;
     public bool isEndNode;
 
