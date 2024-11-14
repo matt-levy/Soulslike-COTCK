@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueText:
   - Press SHIFT to Sprint
+  dialogueAudio:
+  - {fileID: 8300000, guid: 316fc3c0e3b9b544988d37ed7c431317, type: 3}
   choices: []
   isEndNode: 0
