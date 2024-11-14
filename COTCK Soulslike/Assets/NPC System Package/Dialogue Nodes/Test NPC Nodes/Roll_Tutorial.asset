@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueText:
   - Press SPACE to Roll
+  dialogueAudio:
+  - {fileID: 8300000, guid: d603515f8c3fbf3438b9421e6c0520b5, type: 3}
   choices: []
   isEndNode: 0
