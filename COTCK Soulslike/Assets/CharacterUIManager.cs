@@ -12,4 +12,9 @@ public class CharacterUIManager : MonoBehaviour
     {
         characterHPBar.SetStat(newValue);
     }
+
+    public void BossHPBarToggle(bool shouldEnable)
+    {
+        characterHPBar.ToggleBossHealthBar(shouldEnable);
+    }
 }

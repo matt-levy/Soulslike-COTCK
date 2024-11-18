@@ -16,6 +16,7 @@ public class CharacterManager : MonoBehaviour
      
     [Header("Character Group")]
     public CharacterGroup characterGroup;
+    public bool isBoss = false;
 
 
     [Header("Status")]
@@ -122,6 +123,17 @@ public class CharacterManager : MonoBehaviour
         if (!isLockedOn)
         {
             characterCombatManager.currentTarget = null;
+            // Disable Boss HP Bar
+            if (isBoss)
+            {
+                characterUIManager.BossHPBarToggle(false);
+            }
+        }
+
+        // Enable Boss HP Bar
+        if (isBoss && isLockedOn)
+        {
+            characterUIManager.BossHPBarToggle(true);
         }
     }
 
