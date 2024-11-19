@@ -61,6 +61,7 @@ MonoBehaviour:
   characterAnimatorManager: {fileID: 0}
   characterUIManager: {fileID: 0}
   characterGroup: 0
+  isBoss: 0
   isDead: 0
   isPerformingAction: 0
   canRotate: 1
@@ -74,6 +75,7 @@ MonoBehaviour:
     _value: 0
   isUsingRightHand: 0
   isUsingLeftHand: 0
+  isInvincible: 0
   endurance:
     _value: 15
   currentStamina:
