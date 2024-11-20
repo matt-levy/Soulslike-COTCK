@@ -13,6 +13,7 @@ public class UI_Character_HP_Bar : UI_StatBar
     [SerializeField] float defaultTimeBeforeBarHides = 6;
     [SerializeField] float hideTimer = 0;
     [SerializeField] int currentDamageTaken = 0;
+    private bool disabledBossBar = false;
     //[SerializeField] TextMeshProUGUI characterName;
     //[SerializeField] TextMeshProUGUI characterDamage;
 
@@ -64,20 +65,39 @@ public class UI_Character_HP_Bar : UI_StatBar
             hideTimer = defaultTimeBeforeBarHides;
             gameObject.SetActive(true);
         }
+        if (character.isBoss && character.isDead)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    public void ToggleBossHealthBar(bool shouldEnable)
+    {
+        gameObject.SetActive(shouldEnable);
     }
 
 
     private void Update()
     {
-        transform.LookAt(transform.position + Camera.main.transform.forward);
-
-        if (hideTimer > 0)
+        if (!character.isBoss)
         {
-            hideTimer -= Time.deltaTime;
+            transform.LookAt(transform.position + Camera.main.transform.forward);
+
+            if (hideTimer > 0)
+            {
+                hideTimer -= Time.deltaTime;
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
         }
         else
         {
-            gameObject.SetActive(false);
+            if (!disabledBossBar && character.isDead)
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 

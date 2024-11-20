@@ -21,6 +21,10 @@ public class AIMeleeDamageCollider : DamageCollider
         if (charactersDamaged.Contains(damageTarget))
             return;
 
+        // Don't damage target if they are invincible
+        if (damageTarget.isInvincible)
+            return;
+
         charactersDamaged.Add(damageTarget);
 
         //Debug.Log(charactersDamaged[0]);

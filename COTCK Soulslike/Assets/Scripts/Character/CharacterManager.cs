@@ -16,6 +16,7 @@ public class CharacterManager : MonoBehaviour
      
     [Header("Character Group")]
     public CharacterGroup characterGroup;
+    public bool isBoss = false;
 
 
     [Header("Status")]
@@ -32,6 +33,7 @@ public class CharacterManager : MonoBehaviour
     public TrackedBool isMoving = new(false);
     public bool isUsingRightHand = false;
     public bool isUsingLeftHand = false;
+    public bool isInvincible = false;
 
     [Header("Stats")]
     public TrackedInt endurance = new(15);
@@ -90,6 +92,7 @@ public class CharacterManager : MonoBehaviour
     {
 
     }
+
     protected virtual void IgnoreMyOwnColliders()
     {
         Collider characterControllerCollider = GetComponent<Collider>();
@@ -122,6 +125,17 @@ public class CharacterManager : MonoBehaviour
         if (!isLockedOn)
         {
             characterCombatManager.currentTarget = null;
+            // Disable Boss HP Bar
+            if (isBoss)
+            {
+                characterUIManager.BossHPBarToggle(false);
+            }
+        }
+
+        // Enable Boss HP Bar
+        if (isBoss && isLockedOn)
+        {
+            characterUIManager.BossHPBarToggle(true);
         }
     }
 
@@ -180,5 +194,15 @@ public class CharacterManager : MonoBehaviour
             isUsingRightHand = false;
             isUsingLeftHand = true;
         }
+    }
+
+    public void EnableInvinsibility()
+    {
+        isInvincible = true;
+    }
+
+    public void DisableInvinsibility()
+    {
+        isInvincible = false;
     }
 }
