@@ -18,6 +18,8 @@ public class WeaponManager : MonoBehaviour
         // Add scaling damage from stats
 
         meleeDamageCollider.light_attack_01_modifier = weapon.lightAttack01DamageMultiplier;
+        meleeDamageCollider.light_attack_02_modifier = weapon.lightAttack02DamageMultiplier;
+
 
         
     }

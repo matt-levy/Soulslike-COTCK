@@ -18,6 +18,7 @@ public class WeaponItem : Item
 
     // Weapon modifiers
     public int lightAttack01DamageMultiplier = 1;
+    public int lightAttack02DamageMultiplier = 1;
     // Heavy attack mod
     // Crit mod
 

@@ -6,6 +6,9 @@ public class CharacterCombatManager : MonoBehaviour
 {
     protected CharacterManager character;
 
+    [Header("Last Attack Animation Performed")]
+    public string lastAttackAnimationPerformed;
+    
     public AttackType currentAttackType;
 
     [Header("Attack Target")]
