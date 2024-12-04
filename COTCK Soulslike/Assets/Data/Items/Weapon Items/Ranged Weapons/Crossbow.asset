@@ -12,18 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f779c464f541845be94b7d9ecf199e, type: 3}
   m_Name: Crossbow
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Crossbow
   itemIcon: {fileID: 0}
   itemDescription: 
   itemID: 0
-  weaponModel: {fileID: 0}
+  weaponModel: {fileID: 8549432731888821181, guid: 3848f923518d5de479d958835539c058, type: 3}
   strReq: 0
   dexReq: 0
   physicalDamage: 0
   lightAttack01DamageMultiplier: 1
+  lightAttack02DamageMultiplier: 1
   basePoiseDamage: 10
   baseStaminaCost: 20
   lightAttackStaminaMultiplier: 1
-  oh_RB_Action: {fileID: 0}
+  oh_RB_Action: {fileID: 11400000, guid: bee272002daac5247bbb0f2769152f60, type: 2}
   drawSounds: []
   releaseSounds: []

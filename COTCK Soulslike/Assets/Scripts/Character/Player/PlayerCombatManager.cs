@@ -52,4 +52,46 @@ public class PlayerCombatManager : CharacterCombatManager
 
         PlayerCamera.instance.SetLockCameraHeight();
     }
+
+    public void ShootArrow()
+    {
+        RangedProjectileItem projectileItem = player.playerInventoryManager.mainProjectile;
+
+        if (projectileItem == null)
+            return;
+
+    
+        Transform projectileInstantiationLocation = player.playerCombatManager.lockOnTransform;
+        GameObject liveProjectileGameObject = Instantiate(projectileItem.releaseProjectileModel);
+        RangedProjectileDamageCollider liveProjectileDC = liveProjectileGameObject.GetComponent<RangedProjectileDamageCollider>();
+        Rigidbody liveProjectileRB = liveProjectileDC.rb;
+
+        liveProjectileDC.physicalDamage = 100;
+        liveProjectileDC.characterShootingProjectile = player;
+
+        // 1. IF LOCKED ON TO TARGET
+        if (player.playerCombatManager.currentTarget != null)
+        {
+            Quaternion arrowRotation = Quaternion.LookRotation(player.playerCombatManager.currentTarget.characterCombatManager.lockOnTransform.position - liveProjectileGameObject.transform.position);
+            liveProjectileGameObject.transform.rotation = arrowRotation;
+        }
+
+
+        // Get all character colliders and ignore self
+        // Collider[] characterColliders = player.GetComponentsInChildren<Collider>();
+        // List<Collider> collidersArrowWillIgnore = new List<Collider>();
+
+        // foreach (var item in characterColliders)
+        // {
+        //     collidersArrowWillIgnore.Add(item);
+        // }
+
+        // foreach (Collider hitbox in collidersArrowWillIgnore)
+        // {
+        //     Physics.IgnoreCollision(liveProjectileDC, hitbox);
+        // }
+
+        liveProjectileRB.AddForce(liveProjectileGameObject.transform.forward * projectileItem.forwardVelocity);
+        liveProjectileGameObject.transform.parent = null;
+    }
 }

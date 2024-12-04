@@ -10,6 +10,8 @@ public class PlayerInventoryManager : CharacterInventoryManager
 
     public ColorPassive currentColorPassive;
 
+    public RangedProjectileItem mainProjectile;
+
     public bool isPassiveActive = false;
 
     private void Update()

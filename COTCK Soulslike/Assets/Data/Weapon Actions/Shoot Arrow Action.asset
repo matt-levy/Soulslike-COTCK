@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae8b883f6125b744fac3c8cd9b6e1d0f, type: 3}
+  m_Name: Shoot Arrow Action
+  m_EditorClassIdentifier: 
+  actionID: 0
+  projectileSlot: 0
+  arrowModel: {fileID: 7417349302608576606, guid: d7c207f9d81de364abaa0c14478267cc, type: 3}

@@ -13,6 +13,9 @@ public class WeaponManager : MonoBehaviour
 
     public void SetWeaponDamage(CharacterManager characterWieldingWeapon, WeaponItem weapon)
     {
+        if (meleeDamageCollider == null)
+            return;
+            
         meleeDamageCollider.physicalDamage = weapon.physicalDamage;
         // Add other damage types as well
         // Add scaling damage from stats

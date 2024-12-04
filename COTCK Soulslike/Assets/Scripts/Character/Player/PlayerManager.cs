@@ -10,6 +10,7 @@ public class PlayerManager : CharacterManager
     [HideInInspector] public PlayerStatsManager playerStatsManager;
     [HideInInspector] public PlayerInventoryManager playerInventoryManager;
     [HideInInspector] public PlayerCombatManager playerCombatManager;
+    [HideInInspector] public PlayerEquipmentManager playerEquipmentManager;
     
     public FixedString64Bytes characterName;
 
@@ -24,6 +25,7 @@ public class PlayerManager : CharacterManager
         playerStatsManager = GetComponent<PlayerStatsManager>();
         playerInventoryManager = GetComponent<PlayerInventoryManager>();
         playerCombatManager = GetComponent<PlayerCombatManager>();
+        playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
 
         PlayerCamera.instance.player = this;
         PlayerInputManager.instance.player = this;

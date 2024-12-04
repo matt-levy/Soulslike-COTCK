@@ -20,6 +20,6 @@ MonoBehaviour:
   forwardVelocity: 2200
   upwardVelocity: 0
   ammoMass: 0.01
-  physicalDamage: 0
+  physicalDamage: 20
   drawProjectileModel: {fileID: 0}
-  releaseProjectileModel: {fileID: 0}
+  releaseProjectileModel: {fileID: 7417349302608576606, guid: d7c207f9d81de364abaa0c14478267cc, type: 3}

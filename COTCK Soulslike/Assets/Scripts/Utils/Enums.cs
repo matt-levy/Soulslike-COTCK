@@ -40,3 +40,17 @@ public enum AttackType
     LightAttack01,
     LightAttack02
 }
+
+public enum ProjectileClass 
+{
+    Arrow,
+    Bolt
+}
+
+// For if we want to add multiple projectile options
+// Currently not necessary
+public enum ProjectileSlot
+{
+    Main,
+    Secondary
+}
