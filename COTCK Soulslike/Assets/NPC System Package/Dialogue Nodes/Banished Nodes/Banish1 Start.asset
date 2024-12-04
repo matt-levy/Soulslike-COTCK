@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32401b54593ed144e950c39a53740ef3, type: 3}
+  m_Name: Banish1 Start
+  m_EditorClassIdentifier: 
+  dialogueText:
+  - "I haven\u2019t seen a face like yours around here. You must be new here."
+  - "Take it from me, turn back now and stay out of this city. \r"
+  - "Even the smallest grievance is seen as treason in the eyes of the court.\r\r"
+  - "I used to be a council member. Until the day of my wife\u2019s passing\u2026\r\r\r"
+  - "I shed a single tear, and it was enough for those bastards to strip me of everything.\r"
+  - "Do I miss my old life? That is true. But it\u2019s better to accept this grim
+    reality than to live in a delusion of false comfort.\r\r"
+  dialogueAudio:
+  - {fileID: 8300000, guid: 40e0469b2b97022459a03860e853ece4, type: 3}
+  - {fileID: 8300000, guid: 652a65826128cc744a528c5d8e9a4417, type: 3}
+  - {fileID: 8300000, guid: cdefb3e721bc31346a04aee00818880a, type: 3}
+  - {fileID: 8300000, guid: e7739e8a4bdb5f94aa43f128b0f0ffe7, type: 3}
+  - {fileID: 8300000, guid: fd36ecec9185019429a0d8953e3bf31e, type: 3}
+  - {fileID: 8300000, guid: de9b0d592c4f42f4499c1ab3a204941e, type: 3}
+  choices: []
+  isEndNode: 0

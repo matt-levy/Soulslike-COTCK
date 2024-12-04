@@ -295,8 +295,6 @@ MonoBehaviour:
   defaultTimeBeforeBarHides: 3
   hideTimer: 0
   currentDamageTaken: 0
-  characterName: {fileID: 0}
-  characterDamage: {fileID: 0}
 --- !u!1 &5991103698992116545
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,7 +367,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.93}
+  m_AnchoredPosition: {x: 0, y: 1.9299927}
   m_SizeDelta: {x: 65, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5189644657462323328

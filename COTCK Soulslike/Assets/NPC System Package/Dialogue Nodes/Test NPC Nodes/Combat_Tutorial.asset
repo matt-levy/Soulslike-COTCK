@@ -15,5 +15,8 @@ MonoBehaviour:
   dialogueText:
   - Press L to Lock On to enemies...
   - And Click your Mouse to attack!
+  dialogueAudio:
+  - {fileID: 8300000, guid: 9ca8b00db4c8f2d4283f009ba2cfb229, type: 3}
+  - {fileID: 8300000, guid: 1b343605230de67408f2945c7fe881f5, type: 3}
   choices: []
   isEndNode: 0

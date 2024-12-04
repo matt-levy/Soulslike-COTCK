@@ -64,11 +64,19 @@ public class CharacterAnimatorManager : MonoBehaviour
         // Decide if our attack can be parried
         
         character.characterCombatManager.currentAttackType = attackType;
+        character.characterCombatManager.lastAttackAnimationPerformed = targetAnimation;
         character.applyRootMotion = applyRootMotion;
         character.animator.CrossFade(targetAnimation, 0.2f);
     
         character.isPerformingAction = isPerformingAction;
         character.canRotate = canRotate;
         character.canMove = canMove;
+    }
+
+    // ANIMATION EVENT CALLS
+    public virtual void EnableCanDoCombo(){
+    }
+
+    public virtual void DisableCanDoCombo(){
     }
 }

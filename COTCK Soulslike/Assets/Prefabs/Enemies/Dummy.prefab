@@ -3087,6 +3087,10 @@ PrefabInstance:
       propertyPath: defaultTimeBeforeBarHides
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8961044584104919444, guid: 3ff6f4fe86faf4249a4c5bfa93e8fe4b, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
