@@ -77,12 +77,9 @@ public class TakeDamageEffect : InstantCharacterEffect
             finalDamage = 1;
         }
 
-        Debug.Log("Damage taken: " + finalDamage);
-        Debug.Log("Current health: " + character.currentHealth.Value);
 
         character.currentHealth.Value = character.currentHealth.Value - finalDamage;
 
-        Debug.Log("Current health: " + character.currentHealth.Value);
 
         // Calculate Poise Damage
 

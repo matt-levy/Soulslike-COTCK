@@ -10,7 +10,6 @@ public class WeaponItemAction : ScriptableObject
     public virtual void AttemptToPerformAction(PlayerManager playerPerformingAction, WeaponItem weaponPerformingAction)
     {
         // Keep track of which weapon our player is using
-        Debug.Log("Action has fired");
         
     }
 }

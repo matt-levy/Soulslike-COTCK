@@ -40,7 +40,6 @@ public class CombatStanceState : AIState
         }
 
 
-
         aiCharacter.aiCharacterCombatManager.RotateTowardsAgent(aiCharacter);
 
         // if target no longer there, return to idle state

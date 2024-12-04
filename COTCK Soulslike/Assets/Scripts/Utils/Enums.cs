@@ -39,3 +39,15 @@ public enum AttackType
 {
     LightAttack01
 }
+
+public enum WeaponClass
+{
+    StraightSword,
+    Crossbow
+}
+
+public enum ProjectileClass
+{
+    Arrow,
+    Bolt
+}
