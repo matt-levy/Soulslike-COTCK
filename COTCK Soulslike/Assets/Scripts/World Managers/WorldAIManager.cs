@@ -60,7 +60,7 @@ public class WorldAIManager : MonoBehaviour
     }
 
 
-    private void SpawnAllCharacters()
+    public void SpawnAllCharacters()
     {
         foreach (var character in aiCharacters)
         {
@@ -69,7 +69,7 @@ public class WorldAIManager : MonoBehaviour
         }
     }
 
-    private void DespawnAllCharacters()
+    public void DespawnAllCharacters()
     {
         foreach (var character in spawnedInCharacters)
         {

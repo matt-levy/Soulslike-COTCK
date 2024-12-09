@@ -139,7 +139,7 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    public IEnumerator ProcessDeathEvent(bool manuallySelectDeathAnimation = false)
+    public virtual IEnumerator ProcessDeathEvent(bool manuallySelectDeathAnimation = false)
     {
         currentHealth.Value = 0;
         isDead = true;
