@@ -121,4 +121,66 @@ public class PlayerManager : CharacterManager
         PlayerUIManager.instance.playerUIHudManager.SetMaxStaminaValue(maxStamina);
         currentStamina.Value = playerStatsManager.CalculateTotalStaminaBasedOnLevel(newEndurance);
     }
+
+    public override IEnumerator ProcessDeathEvent(bool manuallySelectDeathAnimation = false)
+    {
+        currentHealth.Value = 0;
+        isDead = true;
+
+        // Reset any flags here that need to be reset
+        // Nothing yet
+
+        // if not grounded, play aerial death animation
+
+        if (!manuallySelectDeathAnimation)
+        {
+            characterAnimatorManager.PlayTargetActionAnimation("Dead_01", true);
+        }
+
+        // Play some death sfx
+
+        yield return new WaitForSeconds(5);
+
+        // Award players with runes (if ai)
+
+        // disable character
+
+        // Locate the Respawn Manager GameObject
+        GameObject respawnManagerObject = GameObject.FindWithTag("Respawn Manager");
+
+        if (respawnManagerObject != null)
+        {
+            ResetFlags();
+            Start();
+            playerStatsManager.Start();
+
+            RespawnManager respawnManager = respawnManagerObject.GetComponent<RespawnManager>();
+            gameObject.transform.position = respawnManager.FindClosestRespawnPointForPlayer(gameObject.transform.position);
+            respawnManager.Respawn();
+            characterAnimatorManager.PlayTargetActionAnimation("Roll_Forward_01", true);
+
+            Debug.Log("Respawn Manager located: " + respawnManager.name);
+        }
+        else
+        {
+            Debug.LogError("Respawn Manager not found!");
+        }
+
+    }
+
+    private void ResetFlags()
+    {
+        bool isDead = false;
+        bool isPerformingAction = false;
+        bool canRotate = true;
+        bool canMove = true;
+        bool isGrounded = true;
+        bool applyRootMotion = false;
+        bool isSprinting = false;
+        TrackedBool isLockedOn = new(false);
+        TrackedBool isMoving = new(false);
+        bool isUsingRightHand = false;
+        bool isUsingLeftHand = false;
+        bool isInvincible = false;
+    }
 }

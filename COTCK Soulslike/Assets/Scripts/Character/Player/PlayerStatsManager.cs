@@ -12,7 +12,7 @@ public class PlayerStatsManager : CharacterStatsManager
         player = GetComponent<PlayerManager>();
     }
 
-    protected override void Start()
+    public override void Start()
     {
         base.Start();
 
