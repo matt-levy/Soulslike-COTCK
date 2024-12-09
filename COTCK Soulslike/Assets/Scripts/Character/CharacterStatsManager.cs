@@ -18,7 +18,7 @@ public class CharacterStatsManager : MonoBehaviour
         character = GetComponent<CharacterManager>();
     }
 
-    protected virtual void Start()
+    public virtual void Start()
     {
         
     }
