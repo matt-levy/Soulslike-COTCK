@@ -69,7 +69,7 @@ public class PlayerCombatManager : CharacterCombatManager
         RangedProjectileDamageCollider liveProjectileDC = liveProjectileGameObject.GetComponent<RangedProjectileDamageCollider>();
         Rigidbody liveProjectileRB = liveProjectileDC.rb;
 
-        liveProjectileDC.physicalDamage = 100;
+        //liveProjectileDC.physicalDamage = 10;
         liveProjectileDC.characterShootingProjectile = player;
 
         if (player.isAiming.Value)

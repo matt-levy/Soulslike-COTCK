@@ -177,6 +177,11 @@ public class CharacterManager : MonoBehaviour
         {
             currentHealth.Value = maxHealth;
         }
+
+        if (newValue < oldValue)
+        {
+            characterAnimatorManager.PlayTargetActionAnimation("React_Damage_01", true);
+        }
     }
 
     public void OnIsMovingChanged(bool oldStatus, bool newStatus)

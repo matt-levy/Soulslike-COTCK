@@ -52,6 +52,7 @@ public class DamageCollider : MonoBehaviour
 
         TakeDamageEffect damageEffect = Instantiate(WorldCharacterEffectsManager.instance.takeDamageEffect);
         damageEffect.physicalDamage = physicalDamage;
+        Debug.Log(damageEffect.physicalDamage);
 
         damageTarget.characterEffectsManager.ProcessInstantEffect(damageEffect);
     }

@@ -30,7 +30,7 @@ public class FireProjectileWeaponItemAction : WeaponItemAction
 
         if (!playerPerformingAction.hasArrowLoaded)
         {
-            GameObject arrow = Instantiate(arrowModel, playerPerformingAction.playerEquipmentManager.leftHandSlot.transform);
+            //GameObject arrow = Instantiate(arrowModel, playerPerformingAction.playerEquipmentManager.leftHandSlot.transform);
             playerPerformingAction.playerAnimatorManager.PlayTargetActionAnimation("Reload_01", true);
             playerPerformingAction.hasArrowLoaded = true;
         }
