@@ -19,6 +19,7 @@ public class TrackedBool
             {
                 bool oldValue = _value;
                 _value = value;
+                Debug.Log($"TrackedBool value changed from {oldValue} to {_value}");
 
                 // Trigger the event and pass both old and new values
                 OnValueChanged?.Invoke(oldValue, _value);

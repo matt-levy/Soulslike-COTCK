@@ -10,24 +10,34 @@ public class FireProjectileWeaponItemAction : WeaponItemAction
 
     public override void AttemptToPerformAction(PlayerManager playerPerformingAction, WeaponItem weaponPerformingAction)
     {
+
         base.AttemptToPerformAction(playerPerformingAction, weaponPerformingAction);
+
+        Debug.Log("called action");
 
         if (playerPerformingAction.currentStamina.Value <= 0)
              return;
 
-        RangedProjectileItem projectileItem = null;
+        RangedProjectileItem projectileItem;
 
         // if adding multiple projectiles, use a switch statement
         projectileItem = playerPerformingAction.playerInventoryManager.mainProjectile;
 
-        if (projectileItem != null)
+        if (projectileItem == null)
             return;
+
+        Debug.Log("projectile does not equal null");
 
         if (!playerPerformingAction.hasArrowLoaded)
         {
             GameObject arrow = Instantiate(arrowModel, playerPerformingAction.playerEquipmentManager.leftHandSlot.transform);
             playerPerformingAction.playerAnimatorManager.PlayTargetActionAnimation("Reload_01", true);
-            Destroy(arrow);
+            playerPerformingAction.hasArrowLoaded = true;
         }
+        else 
+        {
+            playerPerformingAction.playerCombatManager.ShootArrow();
+        }
+        
     }
 }

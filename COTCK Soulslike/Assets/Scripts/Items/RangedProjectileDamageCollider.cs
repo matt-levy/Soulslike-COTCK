@@ -29,7 +29,7 @@ public class RangedProjectileDamageCollider : DamageCollider
     {
         if (!hasCollided)
         {
-            hasCollided = true;
+            //hasCollided = true;
 
             CharacterManager potentialTarget = collision.transform.gameObject.GetComponent<CharacterManager>();
 

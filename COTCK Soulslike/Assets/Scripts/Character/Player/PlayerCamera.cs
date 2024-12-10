@@ -7,7 +7,7 @@ public class PlayerCamera : MonoBehaviour
     public static PlayerCamera instance;
     public Camera cameraObject;
     public PlayerManager player;
-    [SerializeField] Transform cameraPivotTransform;
+    public Transform cameraPivotTransform;
 
     [Header("Camera Settings")]
     private float cameraSmoothSpeed = 1; // Larger the number, longer it takes for camera to move towards player
@@ -38,6 +38,9 @@ public class PlayerCamera : MonoBehaviour
     private List<CharacterManager> availableTargets = new List<CharacterManager>();
     public CharacterManager nearestLockOnTarget;
 
+    [Header("Ranged Aim View")]
+    [SerializeField] private Transform followTransformWhenAiming;
+
 
 
     private void Awake() {
@@ -48,7 +51,8 @@ public class PlayerCamera : MonoBehaviour
         }
     }
 
-    private void Start() {
+    private void Start() 
+    {
         DontDestroyOnLoad(gameObject);
         cameraZPosition = cameraObject.transform.localPosition.z;
     }
@@ -62,12 +66,23 @@ public class PlayerCamera : MonoBehaviour
         }
     }
 
-    private void FollowPlayer() {
-        Vector3 targetCameraZPosition = Vector3.SmoothDamp(transform.position, player.transform.position, ref cameraVelocity, cameraSmoothSpeed * Time.deltaTime);
-        transform.position = targetCameraZPosition;
+    private void FollowPlayer() 
+    {
+        if (player.isAiming.Value)
+        {
+            Vector3 targetCameraZPosition = Vector3.SmoothDamp(transform.position, followTransformWhenAiming.position, ref cameraVelocity, cameraSmoothSpeed * Time.deltaTime);
+            transform.position = targetCameraZPosition;
+        }
+        else
+        {
+            Vector3 targetCameraZPosition = Vector3.SmoothDamp(transform.position, player.transform.position, ref cameraVelocity, cameraSmoothSpeed * Time.deltaTime);
+            transform.position = targetCameraZPosition;
+        }
+        
     }
 
-    private void HandleRotations() {
+    private void HandleStandardRotations()
+    {
         // If locked on, force rotation towards target
         if (player.isLockedOn.Value)
         {
@@ -109,7 +124,39 @@ public class PlayerCamera : MonoBehaviour
             targetRotation = Quaternion.Euler(cameraRotation);
             cameraPivotTransform.localRotation = targetRotation;
         }
+    }
 
+    private void HandleAimedRotations()
+    {
+        if (!player.isGrounded)
+            player.isAiming.Value = false;
+
+        if (player.isPerformingAction)
+            return;
+
+        Vector3 cameraRotationY = Vector3.zero;
+        Vector3 cameraRotationX = Vector3.zero;
+
+        leftAndRightLookAngle += (PlayerInputManager.instance.cameraHorizontalInput * leftAndRightRotationSpeed) * Time.deltaTime;
+        upAndDownLookAngle -= (PlayerInputManager.instance.cameraVerticalInput * upAndDownRotationSpeed) * Time.deltaTime;
+        upAndDownLookAngle = Mathf.Clamp(upAndDownLookAngle, minPivot, maxPivot);
+
+        cameraRotationY.y = leftAndRightLookAngle;
+        cameraRotationX.x = upAndDownLookAngle;
+
+        cameraObject.transform.localEulerAngles = new Vector3(upAndDownLookAngle, leftAndRightLookAngle, 0);
+    }
+
+    private void HandleRotations() 
+    {
+        if (player.isAiming.Value)
+        {
+            HandleAimedRotations();
+        }
+        else
+        {
+            HandleStandardRotations();
+        }
     }
 
     // Problem: this function moves the camera position default, fix before reactivation

@@ -35,6 +35,7 @@ public class CharacterManager : MonoBehaviour
     public bool isUsingLeftHand = false;
     public bool isInvincible = false;
     public bool hasArrowLoaded = false;
+    public TrackedBool isAiming = new(false);
 
     [Header("Stats")]
     public TrackedInt endurance = new(15);

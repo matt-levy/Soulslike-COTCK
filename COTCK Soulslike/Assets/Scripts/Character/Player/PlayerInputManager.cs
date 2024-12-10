@@ -27,6 +27,8 @@ public class PlayerInputManager : MonoBehaviour
     [SerializeField] private bool RB_Input = false;
     //[SerializeField] private bool interactInput = false;
 
+    [SerializeField] private bool aimInput = false;
+ 
     [Header("Lock On Input")]
 
     [SerializeField] private bool lockOnInput = false;
@@ -80,6 +82,9 @@ public class PlayerInputManager : MonoBehaviour
             playerControls.PlayerActions.LockOn.performed += i => lockOnInput = true;
 
             //playerControls.PlayerActions.Interact.performed += i => interactInput = true;
+
+            playerControls.PlayerActions.Aim.performed += i => aimInput = true;
+            playerControls.PlayerActions.Aim.canceled += i => aimInput = false;
         }
 
         playerControls.Enable();
@@ -103,6 +108,7 @@ public class PlayerInputManager : MonoBehaviour
         HandleSprinting();
         HandleLockOnInput();
         HandleRBInput();
+        HandleAimInput();
     }
 
     // Movement
@@ -232,6 +238,18 @@ public class PlayerInputManager : MonoBehaviour
             // If we are two handing weapon, run two handed action
 
             player.playerCombatManager.PerformWeaponBasedAction(player.playerInventoryManager.currentRightHandWeapon.oh_RB_Action, player.playerInventoryManager.currentRightHandWeapon);
+        }
+    }
+
+    private void HandleAimInput()
+    {
+        if (aimInput)
+        {
+            player.isAiming.Value = true;
+        }
+        else
+        {
+            player.isAiming.Value = false;
         }
     }
 

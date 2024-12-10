@@ -57,6 +57,8 @@ public class PlayerManager : CharacterManager
         this.isLockedOn.OnValueChanged += OnIsLockOnChanged;
 
         currentHealth.OnValueChanged += CheckHP;
+
+        this.isAiming.OnValueChanged += OnIsAimingChanged;
     }
 
     protected override void Update()
@@ -74,6 +76,20 @@ public class PlayerManager : CharacterManager
         PlayerCamera.instance.HandleAllCameraActions();
     }
 
+    public void OnIsAimingChanged(bool oldStatus, bool newValue)
+    {
+        if (!isAiming.Value)
+        {
+            Debug.Log("called on is aiming changed if");
+            PlayerCamera.instance.cameraObject.transform.localEulerAngles = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            Debug.Log("called on is aiming changed else");
+            PlayerCamera.instance.gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
+            PlayerCamera.instance.cameraPivotTransform.localEulerAngles = new Vector3(0, 0, 0);
+        }
+    }
     public void SaveGameDataToCurrentCharacterData(ref CharacterSaveData currentCharacterData)
     {
         currentCharacterData.characterName = this.characterName.ToString();
@@ -170,17 +186,18 @@ public class PlayerManager : CharacterManager
 
     private void ResetFlags()
     {
-        bool isDead = false;
-        bool isPerformingAction = false;
-        bool canRotate = true;
-        bool canMove = true;
-        bool isGrounded = true;
-        bool applyRootMotion = false;
-        bool isSprinting = false;
-        TrackedBool isLockedOn = new(false);
-        TrackedBool isMoving = new(false);
-        bool isUsingRightHand = false;
-        bool isUsingLeftHand = false;
-        bool isInvincible = false;
+        isDead = false;
+        isPerformingAction = false;
+        canRotate = true;
+        canMove = true;
+        isGrounded = true;
+        applyRootMotion = false;
+        isSprinting = false;
+        isLockedOn = new(false);
+        isMoving = new(false);
+        isUsingRightHand = false;
+        isUsingLeftHand = false;
+        isInvincible = false;
+        isAiming = new(false);
     }
 }
