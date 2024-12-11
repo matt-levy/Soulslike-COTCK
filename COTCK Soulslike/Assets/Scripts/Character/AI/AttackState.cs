@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "AI/States/Attack")]
 public class AttackState : AIState
 {
+    [SerializeField] private AICharacterAttackAction[] attackList;
     [HideInInspector] public AICharacterAttackAction currentAttack;
     [HideInInspector] public bool willPerformCombo = false;
     
@@ -60,6 +61,13 @@ public class AttackState : AIState
 
     protected void PerformAttack(AICharacterManager aiCharacter)
     {
+        // Following if statement only relevant to boss attacks
+        if (attackList.Length != 0 && aiCharacter.isBoss)
+        {
+            int randIndex = Random.Range(0, attackList.Length);
+            currentAttack = attackList[randIndex];
+        }
+
         hasPerformedAttack = true;
         currentAttack.AttemptToPerformAction(aiCharacter);
         aiCharacter.aiCharacterCombatManager.actionRecoveryTimer = currentAttack.actionRecoveryTime;

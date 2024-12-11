@@ -151,10 +151,7 @@ public class CharacterManager : MonoBehaviour
 
         // if not grounded, play aerial death animation
 
-        if (!manuallySelectDeathAnimation)
-        {
-            characterAnimatorManager.PlayTargetActionAnimation("Dead_01", true);
-        }
+        characterAnimatorManager.PlayTargetActionAnimation("Dead_01", true);
 
         // Play some death sfx
 
@@ -163,6 +160,7 @@ public class CharacterManager : MonoBehaviour
         // Award players with runes (if ai)
 
         // disable character
+        this.enabled = false;
     }
 
     public void CheckHP(int oldValue, int newValue)

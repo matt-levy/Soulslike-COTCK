@@ -1964,6 +1964,10 @@ MonoBehaviour:
     _value: 0
   isUsingRightHand: 0
   isUsingLeftHand: 0
+  isInvincible: 0
+  hasArrowLoaded: 0
+  isAiming:
+    _value: 0
   endurance:
     _value: 10
   currentStamina:
@@ -1983,7 +1987,7 @@ MonoBehaviour:
   idle: {fileID: 11400000, guid: b4d2bca22351a0b44abdb1464e940eb8, type: 2}
   pursueTarget: {fileID: 11400000, guid: 3cd04bb1aeab1d64c89bc3a31a92027e, type: 2}
   combatStance: {fileID: 11400000, guid: 0cbe74765f56065428b627aa3d2edd67, type: 2}
-  attack: {fileID: 11400000, guid: 9fb07440440453e44a712d961d05f10b, type: 2}
+  attack: {fileID: 11400000, guid: 300adcaa11d0bc14ea33f0f68dad3d87, type: 2}
 --- !u!114 &6837230034640633961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2040,7 +2044,7 @@ Animator:
   m_GameObject: {fileID: 6610946677562054648}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 6c5d2158365e82c4490b21ca4fbed5c4, type: 3}
-  m_Controller: {fileID: 9100000, guid: 8b0c8926ae281734c8dfdede5ef30ba2, type: 2}
+  m_Controller: {fileID: 9100000, guid: bb8b10ba6425f7b46a1e9bf8ec6d46d6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2125,6 +2129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a15ea0aa469804bbd4793b99f1f91a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastAttackAnimationPerformed: 
   currentAttackType: 0
   currentTarget: {fileID: 0}
   lockOnTransform: {fileID: 0}
