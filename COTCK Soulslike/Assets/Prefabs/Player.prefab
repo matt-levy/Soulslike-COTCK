@@ -35,7 +35,7 @@ Transform:
   m_GameObject: {fileID: 1351390492694500521}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.5, y: -4.4, z: 85.1}
+  m_LocalPosition: {x: 16.546627, y: -7.9579515, z: 89.50004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -78,7 +78,8 @@ MonoBehaviour:
   isUsingLeftHand: 0
   isInvincible: 0
   hasArrowLoaded: 0
-  isAiming: 0
+  isAiming:
+    _value: 0
   endurance:
     _value: 15
   currentStamina:
@@ -331,6 +332,7 @@ MonoBehaviour:
   rightWeaponManager: {fileID: 0}
   rightHandWeaponModel: {fileID: 0}
   leftHandWeaponModel: {fileID: 0}
+  isMelee: 1
 --- !u!1 &4385631528968098231
 GameObject:
   m_ObjectHideFlags: 0

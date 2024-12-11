@@ -61,8 +61,11 @@ public class AttackState : AIState
 
     protected void PerformAttack(AICharacterManager aiCharacter)
     {
+        if (aiCharacter == null)
+            return;
+            
         // Following if statement only relevant to boss attacks
-        if (attackList.Length != 0 && aiCharacter != null && aiCharacter.isBoss)
+        if (attackList.Length != 0 && aiCharacter.isBoss)
         {
             int randIndex = Random.Range(0, attackList.Length);
             currentAttack = attackList[randIndex];

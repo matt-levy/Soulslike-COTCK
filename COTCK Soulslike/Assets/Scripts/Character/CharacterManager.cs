@@ -176,7 +176,7 @@ public class CharacterManager : MonoBehaviour
             currentHealth.Value = maxHealth;
         }
 
-        if (newValue < oldValue)
+        if (newValue < oldValue && newValue != 0)
         {
             characterAnimatorManager.PlayTargetActionAnimation("React_Damage_01", true);
         }
