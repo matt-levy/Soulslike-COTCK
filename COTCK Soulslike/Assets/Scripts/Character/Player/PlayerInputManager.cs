@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -28,6 +29,7 @@ public class PlayerInputManager : MonoBehaviour
     //[SerializeField] private bool interactInput = false;
 
     [SerializeField] private bool aimInput = false;
+    [SerializeField] private bool switchWeaponInput = false;
  
     [Header("Lock On Input")]
 
@@ -85,6 +87,8 @@ public class PlayerInputManager : MonoBehaviour
 
             playerControls.PlayerActions.Aim.performed += i => aimInput = true;
             playerControls.PlayerActions.Aim.canceled += i => aimInput = false;
+
+            playerControls.PlayerActions.SwitchWeapon.performed += i => switchWeaponInput = true;
         }
 
         playerControls.Enable();
@@ -109,6 +113,7 @@ public class PlayerInputManager : MonoBehaviour
         HandleLockOnInput();
         HandleRBInput();
         HandleAimInput();
+        HandleSwitchWeaponInput();
     }
 
     // Movement
@@ -243,13 +248,16 @@ public class PlayerInputManager : MonoBehaviour
 
     private void HandleAimInput()
     {
-        if (aimInput)
+        if (!player.playerEquipmentManager.isMelee)
         {
-            player.isAiming.Value = true;
-        }
-        else
-        {
-            player.isAiming.Value = false;
+            if (aimInput)
+            {
+                player.isAiming.Value = true;
+            }
+            else
+            {
+                player.isAiming.Value = false;
+            }
         }
     }
 
@@ -262,4 +270,13 @@ public class PlayerInputManager : MonoBehaviour
 
     //     }
     // }
+
+    private void HandleSwitchWeaponInput()
+    {
+        if (switchWeaponInput)
+        {
+            switchWeaponInput = false;
+            player.playerEquipmentManager.SwitchWeapon();
+        }
+    }
 }

@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: unlockedCameraHeight
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 90441158619586104, guid: 8cfaf3d519bc1674b8c9ed20ac87300a, type: 3}
+      propertyPath: followTransformWhenAiming
+      value: 
+      objectReference: {fileID: 1049115705}
     - target: {fileID: 6905164123947132873, guid: 8cfaf3d519bc1674b8c9ed20ac87300a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -273,9 +277,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6661032379745765912, guid: 29ad53c4d3966b54c96e2f4281b221b6, type: 3}
-      propertyPath: currentRightHandWeapon
+      propertyPath: currentLeftHandWeapon
       value: 
       objectReference: {fileID: 11400000, guid: 22c999b781fd88e4bb1972e135391979, type: 2}
+    - target: {fileID: 6661032379745765912, guid: 29ad53c4d3966b54c96e2f4281b221b6, type: 3}
+      propertyPath: currentRightHandWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 80d16e5536e45c441a40ceae51a432a4, type: 2}
     - target: {fileID: 6811470492220480994, guid: 29ad53c4d3966b54c96e2f4281b221b6, type: 3}
       propertyPath: lockOnTransform
       value: 
@@ -578,6 +586,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98aa58c49b0cdbf409e6e99ff4440b19, type: 3}
+--- !u!4 &1049115705 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5416612065962565626, guid: 29ad53c4d3966b54c96e2f4281b221b6, type: 3}
+  m_PrefabInstance: {fileID: 586156029}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1101843824
 GameObject:
   m_ObjectHideFlags: 0

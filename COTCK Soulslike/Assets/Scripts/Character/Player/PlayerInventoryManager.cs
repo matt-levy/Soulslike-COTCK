@@ -36,4 +36,12 @@ public class PlayerInventoryManager : CharacterInventoryManager
             }
         }
     }
+
+    public void SwitchInventoryWeapons()
+    {
+        WeaponItem oldLeftHandWeapon = currentLeftHandWeapon;
+
+        currentLeftHandWeapon = currentRightHandWeapon;
+        currentRightHandWeapon = oldLeftHandWeapon;
+    }
 }

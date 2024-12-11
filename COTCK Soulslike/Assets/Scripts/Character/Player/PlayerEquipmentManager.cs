@@ -16,6 +16,10 @@ public class PlayerEquipmentManager : CharacterEquipmentManager
     public GameObject rightHandWeaponModel;
     public GameObject leftHandWeaponModel;
 
+    // Assumes sword is ALWAYS the starting weapon
+    // Sword must begin in right hand, crossbow must be in left
+    public bool isMelee = true;
+
     protected override void Awake()
     {
         base.Awake();
@@ -65,6 +69,17 @@ public class PlayerEquipmentManager : CharacterEquipmentManager
             rightWeaponManager = rightHandWeaponModel.GetComponent<WeaponManager>();
             rightWeaponManager.SetWeaponDamage(player, player.playerInventoryManager.currentRightHandWeapon);
         }
+    }
+
+    // The way this code works, left hand weapon is never loaded and is treaded as an offhand
+    // This function switches the left and right hand weapons 
+    // Right weapon is active weapon
+    // IF LEFT HANDED MODE IS ADDED: update to accommodate 
+    public void SwitchWeapon()
+    {
+        player.playerInventoryManager.SwitchInventoryWeapons();
+        Destroy(rightHandWeaponModel);
+        LoadRightWeapon();
     }
 
     public void LoadLeftWeapon()
