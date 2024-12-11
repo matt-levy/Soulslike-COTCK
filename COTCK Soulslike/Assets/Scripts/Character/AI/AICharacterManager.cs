@@ -11,6 +11,8 @@ public class AICharacterManager : CharacterManager
     [HideInInspector] public AICharacterLocomotionManager aICharacterLocomotionManager;
     [HideInInspector] public AICharacterInventoryManager aiCharacterInventoryManager;
     [HideInInspector] public AICharacterEquipmentManager aiCharacterEquipmentManager;
+    [HideInInspector] public BossEquipmentManager bossEquipmentManager;
+    [HideInInspector] public BossInventoryManager bossInventoryManager;
 
     [Header("Navmesh Agent")]
     public NavMeshAgent navMeshAgent;
@@ -31,6 +33,12 @@ public class AICharacterManager : CharacterManager
         aiCharacterCombatManager = GetComponent<AICharacterCombatManager>();
         navMeshAgent = GetComponentInChildren<NavMeshAgent>();
         aICharacterLocomotionManager = GetComponent<AICharacterLocomotionManager>();
+
+        if (this.isBoss)
+        {
+            bossEquipmentManager = GetComponent<BossEquipmentManager>();
+            bossInventoryManager = GetComponent<BossInventoryManager>();
+        }
 
         // Use copy of scriptable object so original is not modified
         idle = Instantiate(idle);

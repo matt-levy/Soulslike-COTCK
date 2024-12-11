@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 271c38e4d16fb10468f79dd3a23a9712, type: 3}
+  m_Name: Boss Great Sword
+  m_EditorClassIdentifier: 
+  itemName: Boss Sword
+  itemIcon: {fileID: 0}
+  itemDescription: 
+  itemID: 0
+  weaponModel: {fileID: 6794008621531529213, guid: f127bf152e9085048987a5f3614a6402, type: 3}
+  strReq: 0
+  dexReq: 0
+  physicalDamage: 0
+  lightAttack01DamageMultiplier: 1
+  lightAttack02DamageMultiplier: 1
+  basePoiseDamage: 10
+  baseStaminaCost: 20
+  lightAttackStaminaMultiplier: 1
+  oh_RB_Action: {fileID: 0}

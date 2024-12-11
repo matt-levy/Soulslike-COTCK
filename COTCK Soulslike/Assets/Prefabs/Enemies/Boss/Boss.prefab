@@ -1902,10 +1902,10 @@ GameObject:
   - component: {fileID: 3396674030117890141}
   - component: {fileID: 721865284061423773}
   - component: {fileID: 4906399014282856352}
-  - component: {fileID: 4694668445871885402}
-  - component: {fileID: 3061499977851735093}
   - component: {fileID: 9061238319244534091}
   - component: {fileID: 6426214600435176804}
+  - component: {fileID: 8673497283814901229}
+  - component: {fileID: -2995600068062268182}
   m_Layer: 6
   m_Name: Boss
   m_TagString: Untagged
@@ -1982,6 +1982,8 @@ MonoBehaviour:
   aICharacterLocomotionManager: {fileID: 0}
   aiCharacterInventoryManager: {fileID: 0}
   aiCharacterEquipmentManager: {fileID: 0}
+  bossEquipmentManager: {fileID: 0}
+  bossInventoryManager: {fileID: 0}
   navMeshAgent: {fileID: 0}
   currentState: {fileID: 11400000, guid: b4d2bca22351a0b44abdb1464e940eb8, type: 2}
   idle: {fileID: 11400000, guid: b4d2bca22351a0b44abdb1464e940eb8, type: 2}
@@ -2093,30 +2095,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd46c16d6a70e264d9885241d7033f9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4694668445871885402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6610946677562054648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a414492965ac1454fb616a5b7c2f4286, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3061499977851735093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6610946677562054648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24da71e13cae4db43a0e5c018e1698cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &9061238319244534091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2159,6 +2137,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasFloatingHPBar: 1
   characterHPBar: {fileID: 847348062610661186}
+--- !u!114 &8673497283814901229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6610946677562054648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2857623b2f81614ca02c6d297af9361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightHandSlot: {fileID: 0}
+  rightWeaponManager: {fileID: 0}
+  rightHandWeaponModel: {fileID: 0}
+--- !u!114 &-2995600068062268182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6610946677562054648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc241faefe20e444acff323e01e96b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentRightHandWeapon: {fileID: 11400000, guid: 76a0bfb11b121a64c80bcff09bd28157, type: 2}
+  currentLeftHandWeapon: {fileID: 0}
 --- !u!1 &6777416101366807627
 GameObject:
   m_ObjectHideFlags: 0

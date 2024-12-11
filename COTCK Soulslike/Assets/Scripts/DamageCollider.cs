@@ -7,7 +7,7 @@ public class DamageCollider : MonoBehaviour
     [Header("Collider")]
     [SerializeField] protected Collider damageCollider;
     [Header("Damage Types")]
-    public int physicalDamage = 0;
+    public int physicalDamage;
 
     [Header("Contact Point")]
     protected Vector3 contactPoint;
